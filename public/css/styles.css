@@ -1,0 +1,100 @@
+body{
+  margin: 0;
+  font-size: 16px;
+  background-color: #454d66;
+  color: #eee
+}
+.conteiner{
+  margin: 0 auto;
+  max-width: 960px;
+
+}
+header,footer{
+  background: #009975;
+}
+
+h1{
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+}
+h2{
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  font-size: 16px;
+}
+ul{
+  padding-left: 30px;
+  padding-right: 30px;
+  list-style: none;
+}
+li{
+  color: #333;
+}
+.todo{
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: block;
+  background-color: #eee;
+  min-height: 70px;
+}
+
+a{
+  padding-top: 5px;
+  padding-left: 5px;
+  text-decoration: none;
+}
+
+a: visited{
+  color:inherit;
+}
+#todo-add{
+  position: fixed;
+  right: 20px;
+  bottom: 60px;
+  font-size: 30px;
+  background-color: #58b368;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 60px;
+}
+#todo-add:hover{
+  cursor:pointer;
+  opacity: 0.8;
+}
+
+#todo-add-area{
+  max-width: 960px;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 95%;
+  position: relative;
+  background-color:#009975;
+}
+form{
+  padding: 20px;
+}
+form > p{
+  text-align: center;
+}
+
+input[type="text"],textarea{
+  margin: auto;
+  box-sizing: border-box;
+  width: 95%;
+}
+textarea{
+  min-height: 120px;
+}
+
+footer{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: auto;
+  right: auto;
+}
