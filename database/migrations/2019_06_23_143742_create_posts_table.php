@@ -9,7 +9,7 @@ class CreatePostsTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return voidß
      */
     public function up()
     {
