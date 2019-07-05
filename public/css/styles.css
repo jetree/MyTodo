@@ -82,13 +82,11 @@ form > p{
   text-align: center;
 }
 
-input[type="text"],textarea{
+textarea{
   margin: auto;
   box-sizing: border-box;
   width: 95%;
-}
-textarea{
-  min-height: 120px;
+  min-height: 300px;
 }
 
 footer{

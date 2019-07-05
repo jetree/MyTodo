@@ -9,14 +9,13 @@ class CreatePostsTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return voidß
      */
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('title');
-            $table->text('body');
+            $table->text('todo');
             $table->timestamps();
         });
     }

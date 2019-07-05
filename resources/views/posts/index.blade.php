@@ -19,11 +19,8 @@
           @foreach ($posts as $post)
           <li class="todo">
             <h2>
-              {{ $post->title }}
+              {!! nl2br(e($post->todo)) !!}
             </h2>
-            <p>
-              {!! nl2br(e($post->body)) !!}
-            </p>
           </li>
           @endforeach
         </ul>
@@ -35,10 +32,7 @@
         <form action="{{ url('/') }}" method="post">
           {{ csrf_field() }}
           <p>
-            <input type="text" name="title" placeholder="enter title">
-          </p>
-          <p>
-            <textarea name="body" placeholder="enter body"></textarea>
+            <textarea name="todo" placeholder="enter todo"></textarea>
           </p>
           <p>
             <input type="submit" value="登録">
