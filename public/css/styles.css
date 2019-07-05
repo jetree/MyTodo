@@ -89,6 +89,14 @@ textarea{
   min-height: 300px;
 }
 
+.errors{
+  display: block;
+  text-align: center;
+  color:tomato;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 footer{
   width: 100%;
   position: fixed;

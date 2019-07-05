@@ -31,8 +31,11 @@
       <div class="" id="todo-add-area">
         <form action="{{ url('/') }}" method="post">
           {{ csrf_field() }}
+          @if ($errors->has('todo'))
+          <span class="errors">{{ $errors->first('todo') }}</span>
+          @endif
           <p>
-            <textarea name="todo" placeholder="enter todo"></textarea>
+            <textarea name="todo" placeholder="enter todo" value="{{ old('todo') }}"></textarea>
           </p>
           <p>
             <input type="submit" value="登録">

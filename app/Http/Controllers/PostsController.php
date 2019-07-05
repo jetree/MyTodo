@@ -15,6 +15,9 @@ class PostsController extends Controller
     }
 
     public function store(Request $request){
+      $this->validate($request,[
+        'todo' => 'required'
+      ]);
       $post = new Post();
       $post->todo = $request->todo;
       $post->save();
