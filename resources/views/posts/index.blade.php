@@ -6,6 +6,9 @@
     <title>{アプリタイトル}</title>
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/77d57efb85.js"></script>
+    <script type="text/javascript" src="/js/main.js">
+
+    </script>
   </head>
   <body>
     <header>
@@ -48,9 +51,13 @@
         </ul>
 
       </div>
+      <input id="trigger" type="checkbox">
       <div class="" id="todo-add">
-        <i class="fas fa-edit"></i>
+        <label for="trigger">
+          <i class="fas fa-edit"></i>
+        </label>
       </div>
+
       <div class="" id="todo-add-area">
         <form action="{{ url('/') }}" method="post">
           {{ csrf_field() }}
@@ -61,7 +68,7 @@
             <textarea name="todo" placeholder="enter todo" value="{{ old('todo') }}"></textarea>
           </p>
           <p>
-            <input type="submit" value="登録">
+            <input class="btn" type="submit" value="登録">
           </p>
         </form>
       </div>
