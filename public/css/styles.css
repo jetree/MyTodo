@@ -4,11 +4,13 @@ body{
   background-color: #454d66;
   color: #eee
 }
+
 .conteiner{
   margin: 0 auto;
   max-width: 960px;
 
 }
+
 header,footer{
   background: #009975;
 }
@@ -19,20 +21,29 @@ h1{
   padding: 10px;
   font-size: 20px;
 }
+
 h2{
   text-align: center;
   margin: 0;
   padding: 10px;
   font-size: 16px;
 }
+
 ul{
   padding-left: 30px;
   padding-right: 30px;
   list-style: none;
 }
+
 li{
   color: #333;
 }
+
+.submenu{
+  display: flex;
+  justify-content: space-around;
+}
+
 .todo{
   border-radius: 5px;
   margin-bottom: 10px;
@@ -50,6 +61,7 @@ a{
 a: visited{
   color:inherit;
 }
+
 #todo-add{
   position: fixed;
   right: 20px;
@@ -62,6 +74,7 @@ a: visited{
   text-align: center;
   line-height: 60px;
 }
+
 #todo-add:hover{
   cursor:pointer;
   opacity: 0.8;
@@ -75,9 +88,11 @@ a: visited{
   position: relative;
   background-color:#009975;
 }
+
 form{
   padding: 20px;
 }
+
 form > p{
   text-align: center;
 }

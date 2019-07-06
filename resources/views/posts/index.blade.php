@@ -21,9 +21,32 @@
             <h2>
               {!! nl2br(e($post->todo)) !!}
             </h2>
+            <ul class="submenu">
+              <li>
+                <a href="">
+                  <i class="far fa-check-square"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="far fa-comment"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fas fa-pen"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </li>
+            </ul>
           </li>
           @endforeach
         </ul>
+
       </div>
       <div class="" id="todo-add">
         <i class="fas fa-edit"></i>
