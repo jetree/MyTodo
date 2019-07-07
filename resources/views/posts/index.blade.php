@@ -42,10 +42,10 @@
                 </a>
               </li>
               <li>
-                <a href="" class="del" data-id="{{ $post->id }} ">
+                <a href="" class="del" data-id="{{ $post->id }}">
                   <i class="fas fa-trash-alt"></i>
                 </a>
-                <form mathod="post" action="{{ url('posts' , $post->id )}}" id="form_{{ $post->id }} ">
+                <form mathod="post" action="{{ url('posts' , $post->id )}}" id="form_{{ $post->id }}">
                   {{ csrf_field() }}
                   {{ method_field('delete')}}
                 </form>
