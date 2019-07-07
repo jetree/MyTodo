@@ -13,3 +13,4 @@
 
 Route::get('/', 'PostsController@index');
 Route::post('/', 'PostsController@store');
+Route::delete('/poost','PostsController@index');
