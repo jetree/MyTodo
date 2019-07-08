@@ -44,6 +44,7 @@ li{
 .submenu{
   display: flex;
   justify-content: space-around;
+  height: 30px;
 }
 
 .todo{
@@ -108,6 +109,10 @@ form{
 
 form > p{
   text-align: center;
+}
+
+.d-none{
+  display: none;
 }
 
 textarea{
