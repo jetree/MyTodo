@@ -83,7 +83,7 @@ a: visited{
   opacity: 0.8;
 }
 
-#todo-add-area{
+.form-area{
   display: none;
   max-width: 960px;
   width: 90%;
@@ -96,10 +96,16 @@ a: visited{
   background-color:#009975;
 }
 
-#trigger{
+#add_trigger{
   display: none;
 }
-#trigger:checked ~ #todo-add-area{
+#add_trigger:checked ~ #todo-add-area{
+  display: block;
+}
+#edit_trigger{
+  display: none;
+}
+#edit_trigger:checked ~ #todo-edit-area{
   display: block;
 }
 

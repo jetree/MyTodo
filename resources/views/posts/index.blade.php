@@ -19,10 +19,8 @@
         <ul>
           @forelse ($posts as $post)
           <li class="todo">
-            <h2>
-              {{ $post->id}}
-              {!! nl2br(e($post->todo)) !!}
-            </h2>
+            <h1>{{ $post->id}}</h1>
+            <h2 id="text_{{ $post->id }}">{!! nl2br(e($post->todo)) !!}</h2>
             <ul class="submenu">
               <li>
                 <a href="">
@@ -36,9 +34,7 @@
               </li>
               <li>
                 <a href="" class="edit" data-id="{{ $post->id }}">
-                  <label for="trigger" id="edit_{{ $post->id }}">
-                    <i class="fas fa-pen"></i>
-                  </label>
+                  <i class="fas fa-pen"></i>
                 </a>
               </li>
               <li>
@@ -61,25 +57,37 @@
         </ul>
 
       </div>
-      <input id="trigger" type="checkbox">
+      <input id="add_trigger" type="checkbox">
+      <input id="edit_trigger" type="checkbox">
       <div class="" id="todo-add">
-        <label for="trigger" >
+        <label for="add_trigger" >
           <i class="fas fa-edit"></i>
         </label>
       </div>
 
-      <div class="" id="todo-add-area">
-        <form action="{{ url('/') }}" method="post">
+      <div class="form-area" id="todo-add-area">
+        <form action="{{ url('/') }}" method="post" id="form_add" ?>
           {{ csrf_field() }}
           @if ($errors->has('todo'))
-          <span class="errors">{{ $errors->first('todo') }}</span>
+          <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
           @endif
-          <p></p>
           <p>
-            <textarea name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
+            <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
           </p>
           <p>
-            <input class="btn" type="submit" value="登録">
+            <input id="btn" class="btn" type="submit" value="登録">
+          </p>
+        </form>
+      </div>
+      <div class="form-area" id="todo-edit-area">
+        <form action="" method="post" id="form_edit">
+          {{ csrf_field() }}
+          {{ method_field('patch')}}
+          <p>
+            <textarea id="edit_textarea" name="todo" value="{{ old('posts->$id') }}"></textarea>
+          </p>
+          <p>
+            <input id="edit_btn" class="btn" type="submit" value="更新">
           </p>
         </form>
       </div>

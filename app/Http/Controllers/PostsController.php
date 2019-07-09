@@ -29,5 +29,14 @@ class PostsController extends Controller
       return redirect('/');
     }
 
+    public function update(Request $request, Post $post){
+      $this->validate($request,[
+        'todo' => 'required'
+      ]);
+      $post->todo = $request->todo;
+      $post->save();
+      return redirect('/');
+    }
+
 
 }
