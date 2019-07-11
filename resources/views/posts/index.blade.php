@@ -19,7 +19,11 @@
         <ul>
           @forelse ($posts as $post)
           <li class="todo">
-            <h1>{{ $post->id}}</h1>
+            @if($post->user_id)
+            <h3>{{ $post->user_id}}</h3>
+            @else
+            <h3>GuestUser</h3>
+            @endif
             <h2 id="text_{{ $post->id }}">{!! nl2br(e($post->todo)) !!}</h2>
             <ul class="submenu">
               <li>
@@ -59,11 +63,11 @@
       </div>
       <input id="add_trigger" type="checkbox">
       <input id="edit_trigger" type="checkbox">
-      <div class="" id="todo-add">
-        <label for="add_trigger" >
+      <label for="add_trigger" >
+        <div class="" id="todo-add">
           <i class="fas fa-edit"></i>
-        </label>
-      </div>
+        </div>
+      </label>
 
       <div class="form-area" id="todo-add-area">
         <form action="{{ url('/') }}" method="post" id="form_add" ?>
@@ -74,21 +78,30 @@
           <p>
             <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
           </p>
-          <p>
+          <div class="btns">
             <input id="btn" class="btn" type="submit" value="登録">
-          </p>
+            <label for="add_trigger">
+              <div class="btn" name="button">キャンセル</div>
+            </label>
+          </div>
         </form>
       </div>
       <div class="form-area" id="todo-edit-area">
         <form action="" method="post" id="form_edit">
           {{ csrf_field() }}
           {{ method_field('patch')}}
+          @if ($errors->has('todo'))
+          <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
+          @endif
           <p>
             <textarea id="edit_textarea" name="todo" value="{{ old('posts->$id') }}"></textarea>
           </p>
-          <p>
+          <div class="btns">
             <input id="edit_btn" class="btn" type="submit" value="更新">
-          </p>
+            <label for="edit_trigger">
+              <button class="btn" name="button">キャンセル</button>
+            </label>
+          </div>
         </form>
       </div>
     </main>
