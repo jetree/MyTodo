@@ -20,7 +20,7 @@
           @forelse ($posts as $post)
           <li class="todo">
             @if($post->user_id)
-            <h3>{{ $post->user_id}}</h3>
+            <h3>{{ $post->user->name }}</h3>
             @else
             <h3>GuestUser</h3>
             @endif
