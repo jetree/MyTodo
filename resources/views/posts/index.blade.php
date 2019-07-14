@@ -1,115 +1,95 @@
-<!DOCTYPE html>
-<html lang="ja" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{アプリタイトル}</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://kit.fontawesome.com/77d57efb85.js"></script>
+@extends('layouts.default')
 
-  </head>
-  <body>
-    <header>
-      <div class="conteiner">
-        <h1>{アプリタイトル}</h1>
-      </div>
-    </header>
-    <main>
-      <div class="conteiner main">
-        <ul>
-          @forelse ($posts as $post)
-          <li class="todo">
-            @if($post->user_id)
-            <h3>{{ $post->user->name }}</h3>
-            @else
-            <h3>GuestUser</h3>
-            @endif
-            <h2 id="text_{{ $post->id }}">{!! nl2br(e($post->todo)) !!}</h2>
-            <ul class="submenu">
-              <li>
-                <a href="">
-                  <i class="far fa-check-square"></i>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <i class="far fa-comment"></i>
-                </a>
-              </li>
-              <li>
-                <a href="" class="edit" data-id="{{ $post->id }}">
-                  <i class="fas fa-pen"></i>
-                </a>
-              </li>
-              <li>
-                <a href="" class="del" data-id="{{ $post->id }}">
-                  <i class="fas fa-trash-alt"></i>
-                </a>
-                <form class="d-none" mathod="post" action="{{ url('/posts' , $post->id )}}" id="form_{{ $post->id }}">
-                  {{ csrf_field() }}
-                  {{ method_field('delete')}}
-                </form>
-              </li>
-            </ul>
-          </li>
-          @empty
-          <li class="todo">
-            <h2>
-              投稿がありません</li>
-            </h2>
-          @endforelse
-        </ul>
+@section('title')
+{アプリタイトル}
+@endsection
 
-      </div>
-      <input id="add_trigger" type="checkbox">
-      <input id="edit_trigger" type="checkbox">
-      <label for="add_trigger" >
-        <div class="" id="todo-add">
-          <i class="fas fa-edit"></i>
-        </div>
+@section('main')
+  <ul>
+    @forelse ($posts as $post)
+    <li class="todo">
+      @if($post->user_id)
+      <h3>{{ $post->user->name }}</h3>
+      @else
+      <h3>GuestUser</h3>
+      @endif
+      <h2 id="text_{{ $post->id }}">{!! nl2br(e($post->todo)) !!}</h2>
+      <ul class="submenu">
+        <li>
+          <a href="">
+            <i class="far fa-check-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" class="edit" data-id="{{ $post->id }}">
+            <i class="fas fa-pen"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" class="del" data-id="{{ $post->id }}">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+          <form class="d-none" mathod="post" action="{{ url('/posts' , $post->id )}}" id="form_{{ $post->id }}">
+            {{ csrf_field() }}
+            {{ method_field('delete')}}
+          </form>
+        </li>
+      </ul>
+    </li>
+    @empty
+    <li class="todo">
+      <h2>
+        投稿がありません</li>
+      </h2>
+    @endforelse
+  </ul>
+
+  </div>
+  <input id="add_trigger" type="checkbox">
+  <input id="edit_trigger" type="checkbox">
+  <label for="add_trigger" >
+  <div class="" id="todo-add">
+    <i class="fas fa-edit"></i>
+  </div>
+  </label>
+
+  <div class="form-area" id="todo-add-area">
+  <form action="{{ url('/') }}" method="post" id="form_add" ?>
+    {{ csrf_field() }}
+    @if ($errors->has('todo'))
+    <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
+    @endif
+    <p>
+      <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
+    </p>
+    <div class="btns">
+      <input id="btn" class="btn" type="submit" value="登録">
+      <label for="add_trigger">
+        <div class="btn" name="button">キャンセル</div>
       </label>
-
-      <div class="form-area" id="todo-add-area">
-        <form action="{{ url('/') }}" method="post" id="form_add" ?>
-          {{ csrf_field() }}
-          @if ($errors->has('todo'))
-          <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
-          @endif
-          <p>
-            <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
-          </p>
-          <div class="btns">
-            <input id="btn" class="btn" type="submit" value="登録">
-            <label for="add_trigger">
-              <div class="btn" name="button">キャンセル</div>
-            </label>
-          </div>
-        </form>
-      </div>
-      <div class="form-area" id="todo-edit-area">
-        <form action="" method="post" id="form_edit">
-          {{ csrf_field() }}
-          {{ method_field('patch')}}
-          @if ($errors->has('todo'))
-          <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
-          @endif
-          <p>
-            <textarea id="edit_textarea" name="todo" value="{{ old('posts->$id') }}"></textarea>
-          </p>
-          <div class="btns">
-            <input id="edit_btn" class="btn" type="submit" value="更新">
-            <label for="edit_trigger">
-              <button class="btn" name="button">キャンセル</button>
-            </label>
-          </div>
-        </form>
-      </div>
-    </main>
-    <footer>
-      <div class="conteiner">
-        <h2>おまけ</h2>
-      </div>
-    </footer>
-    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-  </body>
-</html>
+    </div>
+  </form>
+  </div>
+  <div class="form-area" id="todo-edit-area">
+  <form action="" method="post" id="form_edit">
+    {{ csrf_field() }}
+    {{ method_field('patch')}}
+    @if ($errors->has('todo'))
+    <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
+    @endif
+    <p>
+      <textarea id="edit_textarea" name="todo" value="{{ old('posts->$id') }}"></textarea>
+    </p>
+    <div class="btns">
+      <input id="edit_btn" class="btn" type="submit" value="更新">
+      <label for="edit_trigger">
+        <button class="btn" name="button">キャンセル</button>
+      </label>
+    </div>
+  </form>
+@endsection
