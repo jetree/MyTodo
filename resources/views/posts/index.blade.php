@@ -68,9 +68,9 @@
       <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
     </p>
     <div class="btns">
-      <input id="btn" class="btn" type="submit" value="登録">
+      <input id="btn" class="btn btn-primary" type="submit" value="登録">
       <label for="add_trigger">
-        <div class="btn" name="button">キャンセル</div>
+        <div class="btn btn-primary" name="button">キャンセル</div>
       </label>
     </div>
   </form>
@@ -86,9 +86,9 @@
       <textarea id="edit_textarea" name="todo" value="{{ old('posts->$id') }}"></textarea>
     </p>
     <div class="btns">
-      <input id="edit_btn" class="btn" type="submit" value="更新">
+      <input id="edit_btn" class="btn btn-primary" type="submit" value="更新">
       <label for="edit_trigger">
-        <button class="btn" name="button">キャンセル</button>
+        <button class="btn btn-primary" name="button">キャンセル</button>
       </label>
     </div>
   </form>
