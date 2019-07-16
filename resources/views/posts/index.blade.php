@@ -67,6 +67,7 @@
     <p>
       <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
     </p>
+    <input type="hidden" name="user_id" value="{{ $id }}">
     <div class="btns">
       <input id="btn" class="btn btn-primary" type="submit" value="登録">
       <label for="add_trigger">

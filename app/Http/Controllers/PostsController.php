@@ -2,24 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
 
 class PostsController extends Controller
 {
     public function index(){
+      $id = Auth::id();
       $posts = Post::all();
+      // dd($id);
       // dd($posts->toArray());
       return view('posts.index')
-      ->with('posts',$posts);
+      ->with([
+        'posts' => $posts,
+        'id' => $id,
+      ]);
     }
 
     public function store(Request $request){
       $this->validate($request,[
-        'todo' => 'required'
+        'todo' => 'required',
       ]);
       $post = new Post();
       $post->todo = $request->todo;
+      $post->user_id = $request->user_id;
       $post->save();
       return redirect('/');
     }
