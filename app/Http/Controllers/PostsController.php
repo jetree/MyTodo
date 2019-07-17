@@ -27,6 +27,7 @@ class PostsController extends Controller
       $post = new Post();
       $post->todo = $request->todo;
       $post->user_id = $request->user_id;
+      $post->status = 0;
       $post->save();
       return redirect('/');
     }

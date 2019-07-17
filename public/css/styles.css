@@ -27,20 +27,23 @@ h1{
   text-align: center;
   margin: 0;
   padding: 10px;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 h2{
-  text-align: center;
+  /* text-align: center; */
   margin: 0;
+  margin-left: 10%;
   padding: 10px;
-  font-size: 16px;
+  /* font-size: 16px; */
 }
 
 h3{
   margin-left: 20px;
   margin-bottom: 0;
   padding: 5px;
+  font-size: 16px;
+
 }
 
 .main ul{

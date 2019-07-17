@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->Increments('id');
             $table->unsignedInteger('user_id')->nullable();
             $table->text('todo');
+            $table->unsignedInteger('status');  //0:未実施　1:完了
             $table->timestamps();
             $table
               ->foreign('user_id')
