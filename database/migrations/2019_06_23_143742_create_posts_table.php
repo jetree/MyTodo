@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->Increments('id');
             $table->unsignedInteger('user_id')->nullable();
-            $table->text('todo');
+            $table->string('todo');
             $table->unsignedInteger('status');  //0:未実施　1:完了
             $table->timestamps();
             $table
