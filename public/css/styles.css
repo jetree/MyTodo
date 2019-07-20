@@ -85,6 +85,17 @@ a: visited{
   color: rgba(0, 0, 0, 0.7);
 }
 
+.mask{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  z-index: 1;
+
+}
+
 #todo-add{
   position: fixed;
   right: 20px;
@@ -126,6 +137,7 @@ a: visited{
   left: 50%;
   transform: translate(-50%,-50%);
   background-color:#009975;
+  z-index: 2;
 }
 
 
@@ -139,6 +151,9 @@ form > p{
 
 .d-none{
   display: none;
+}
+.d-block{
+  display: block;
 }
 
 textarea{
@@ -172,6 +187,7 @@ textarea{
   background-color: lightgreen;
   color: #333;
   transition: 1s;
+  z-index: 2;
 }
 
 .member-header{
@@ -213,4 +229,7 @@ footer{
 }
 #member_trigger:checked ~ #left-conteiner{
   display: block;
+}
+#member_trigger:checked ~ #member-btn-label{
+  display: none;
 }

@@ -8,7 +8,9 @@ pairTodo
   <header>
     <div class="member-header">
       メンバー一覧
-      <i class="fas fa-times clear-btn"></i>
+      <label for="member_trigger" class="clear-btn">
+        <i class="fas fa-times"></i>
+      </label>
   </header>
 
 
@@ -59,6 +61,8 @@ pairTodo
     @endforelse
   </ul>
 
+  <div class="mask d-none"></div>
+
   </div>
   <input id="add_trigger" type="checkbox">
   <input id="edit_trigger" type="checkbox">
@@ -69,9 +73,9 @@ pairTodo
       <i class="fas fa-edit"></i>
     </div>
   </label>
-  <label for="member_trigger" >
+  <label for="member_trigger" id="member-btn-label">
     <div class="btn" id="member-btn">
-      <i class="fas fa-edit"></i>
+      <i class="fas fa-user-friends"></i>
     </div>
   </label>
 

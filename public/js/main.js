@@ -1,6 +1,15 @@
 (function(){
   'use strict';
 
+  // form・memberリスト　モーダル出現処理
+  function $modal(){
+    let cmds = document.getElementById('todo-add');
+    let modal = document.getElementById('todo-add-area');
+    cmds.addEventListener('click',function(){
+      modal.addClassName('d-block')
+    })
+  }
+
   // 削除機能
   function $delete(){
     let cmds = document.getElementsByClassName('del');
@@ -42,6 +51,7 @@
     };
   }
 
+  // form送信エラー時form再出現（未完成）
   function $todo_add_area(){
     const Errors = document.getElementById('errors')
     if(Errors !== null){
