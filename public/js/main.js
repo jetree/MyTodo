@@ -3,10 +3,30 @@
 
   // form・memberリスト　モーダル出現処理
   function $modal(){
-    let cmds = document.getElementById('todo-add');
-    let modal = document.getElementById('todo-add-area');
-    cmds.addEventListener('click',function(){
-      modal.addClassName('d-block')
+    const todo_add_btn = document.getElementById('todo_add_btn');
+    const add_trigger= document.getElementById('add_trigger');
+
+    const member_btn= document.getElementById('member_btn');
+    const member_trigger= document.getElementById('member_trigger');
+
+    const edit_trigger =document.getElementById('edit_trigger');
+
+    const mask = document.getElementById('mask');
+
+    todo_add_btn.addEventListener('click',function(){
+      add_trigger.checked = true;
+      mask.classList.remove('hidden');
+    })
+
+    member_btn.addEventListener('click',function(){
+      member_trigger.checked = true;
+      mask.classList.remove('hidden');
+    })
+    mask.addEventListener('click',function(){
+      mask.classList.add('hidden');
+      add_trigger.checked = false;
+      member_trigger.checked = false;
+      edit_trigger.checked = false;
     })
   }
 
@@ -45,6 +65,8 @@
         console.log(Text);
         textarea.value = Text;
         document.getElementById('edit_trigger').checked = true;
+        document.getElementById('mask').classList.remove('hidden');
+        console.log(document.getElementById('mask').classList);
         Edit.action = "/posts/" + $id
 
       });
@@ -59,7 +81,7 @@
     }
   }
 
-
+  $modal();
   $delete();
   $edit();
   $todo_add_area();

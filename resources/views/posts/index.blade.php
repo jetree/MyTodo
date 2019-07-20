@@ -8,9 +8,6 @@ pairTodo
   <header>
     <div class="member-header">
       メンバー一覧
-      <label for="member_trigger" class="clear-btn">
-        <i class="fas fa-times"></i>
-      </label>
   </header>
 
 
@@ -61,23 +58,19 @@ pairTodo
     @endforelse
   </ul>
 
-  <div class="mask d-none"></div>
+  <div id="mask" class="mask hidden"></div>
 
   </div>
   <input id="add_trigger" type="checkbox">
   <input id="edit_trigger" type="checkbox">
 
 
-  <label for="add_trigger" >
-    <div class="btn" id="todo-add">
+    <div class="btn" id="todo_add_btn">
       <i class="fas fa-edit"></i>
     </div>
-  </label>
-  <label for="member_trigger" id="member-btn-label">
-    <div class="btn" id="member-btn">
+    <div class="btn" id="member_btn">
       <i class="fas fa-user-friends"></i>
     </div>
-  </label>
 
   <div class="form-area" id="todo-add-area">
     <form action="{{ url('/') }}" method="post" id="form_add" ?>
@@ -91,9 +84,6 @@ pairTodo
       <input type="hidden" name="user_id" value="{{ $id }}">
       <div class="btns">
         <input id="btn" class="btn btn-primary" type="submit" value="登録">
-        <label for="add_trigger">
-          <div class="btn btn-primary" name="button">キャンセル</div>
-        </label>
       </div>
     </form>
   </div>
@@ -109,9 +99,6 @@ pairTodo
       </p>
       <div class="btns">
         <input id="edit_btn" class="btn btn-primary" type="submit" value="更新">
-        <label for="edit_trigger">
-          <button class="btn btn-primary" name="button">キャンセル</button>
-        </label>
       </div>
     </form>
   </div>

@@ -96,7 +96,7 @@ a: visited{
 
 }
 
-#todo-add{
+#todo_add_btn{
   position: fixed;
   right: 20px;
   bottom: 60px;
@@ -108,7 +108,7 @@ a: visited{
   text-align: center;
   /* line-height: 60px; */
 }
-#member-btn{
+#member_btn{
   position: fixed;
   left: 20px;
   bottom: 60px;
@@ -149,12 +149,10 @@ form > p{
   text-align: center;
 }
 
-.d-none{
+.hidden{
   display: none;
 }
-.d-block{
-  display: block;
-}
+
 
 textarea{
   font-size: 22px;
