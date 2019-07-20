@@ -56,10 +56,6 @@ h3{
   list-style: none;
 }
 
-li{
-
-}
-
 .submenu{
   display: flex;
   justify-content: space-around;
@@ -99,10 +95,22 @@ a: visited{
   height: 60px;
   border-radius: 100%;
   text-align: center;
-  line-height: 60px;
+  /* line-height: 60px; */
+}
+#member-btn{
+  position: fixed;
+  left: 20px;
+  bottom: 60px;
+  font-size: 30px;
+  background-color: #58b368;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  text-align: center;
+  /* line-height: 60px; */
 }
 
-#todo-add:hover{
+.btn:hover{
   cursor:pointer;
   opacity: 0.8;
 }
@@ -120,18 +128,6 @@ a: visited{
   background-color:#009975;
 }
 
-#add_trigger{
-  display: none;
-}
-#add_trigger:checked ~ #todo-add-area{
-  display: block;
-}
-#edit_trigger{
-  display: none;
-}
-#edit_trigger:checked ~ #todo-edit-area{
-  display: block;
-}
 
 form{
   padding: 20px;
@@ -166,26 +162,30 @@ textarea{
   text-align: center;
 }
 
-/* .btn{
-  font-size: 20px;
-  position: relative;
-  display: inline-block;
-  padding: 0.5em 2em;
-  margin-left: 20px;
-  text-decoration: none;
-  color: #FFF;
-  background: #03A9F4;
-  border: solid 1px #0f9ada;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+#left-conteiner{
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: lightgreen;
+  color: #333;
+  transition: 1s;
 }
 
-.btn:active {
-  border: solid 1px #03A9F4;
-  box-shadow: none;
-  text-shadow: none;
-} */
+.member-header{
+  font-size: 20px;
+  padding: 20px;
+  border-bottom: 2px solid #333;
+  line-height: 20px;
+}
+
+
+.clear-btn{
+  float: right;
+  display: block;
+}
 
 footer{
   width: 100%;
@@ -193,4 +193,24 @@ footer{
   bottom: 0;
   left: auto;
   right: auto;
+}
+
+
+#add_trigger{
+  display: none;
+}
+#add_trigger:checked ~ #todo-add-area{
+  display: block;
+}
+#edit_trigger{
+  display: none;
+}
+#edit_trigger:checked ~ #todo-edit-area{
+  display: block;
+}
+#member_trigger{
+  display: none;
+}
+#member_trigger:checked ~ #left-conteiner{
+  display: block;
 }
