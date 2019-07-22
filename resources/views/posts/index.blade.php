@@ -7,9 +7,18 @@ pairTodo
 @section('left')
   <header>
     <div class="member-header">
-      メンバー一覧
-  </header>
+      <span>メンバー一覧</span>
+      <i class="fas fa-user-plus user-plus"></i>
+    </div>
 
+  </header>
+  <div class="member-list">
+    @if($Auth)
+    {{ $Auth->name }}
+    @else
+    ログインしていません
+    @endif
+  </div>
 
 @endsection
 
@@ -81,7 +90,11 @@ pairTodo
       <p>
         <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
       </p>
-      <input type="hidden" name="user_id" value="{{ $id }}">
+      @if($Auth)
+        <input type="hidden" name="user_id" value="{{ $Auth->id }}">
+      @else
+        <input type="hidden" name="user_id" value="">
+      @endif
       <div class="btns">
         <input id="btn" class="btn btn-primary" type="submit" value="登録">
       </div>

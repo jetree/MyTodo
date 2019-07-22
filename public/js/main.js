@@ -78,6 +78,7 @@
     const Errors = document.getElementById('errors')
     if(Errors !== null){
       document.getElementById('add_trigger').checked = true;
+      document.getElementById('mask').classList.remove('hidden');
     }
   }
 

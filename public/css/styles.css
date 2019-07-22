@@ -191,15 +191,21 @@ textarea{
 .member-header{
   font-size: 20px;
   padding: 20px;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #666;
   line-height: 20px;
 }
 
-
-.clear-btn{
+.user-plus{
+  /* padding-left: 50px; */
   float: right;
-  display: block;
 }
+
+.member-list{
+  font-size: 22px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
 
 footer{
   width: 100%;

@@ -9,14 +9,15 @@ use App\Post;
 class PostsController extends Controller
 {
     public function index(){
-      $id = Auth::id();
+      $Auth = Auth::user();
       $posts = Post::all();
+      // dd($Auth);
       // dd($id);
       // dd($posts->toArray());
       return view('posts.index')
       ->with([
         'posts' => $posts,
-        'id' => $id,
+        'Auth' => $Auth,
       ]);
     }
 
