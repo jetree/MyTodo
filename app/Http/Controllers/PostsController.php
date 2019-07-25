@@ -5,19 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+use App\Friend;
 
 class PostsController extends Controller
 {
     public function index(){
       $Auth = Auth::user();
+      $friends = Auth::user()->friends()->get();
       $posts = Post::all();
-      // dd($Auth);
+      $users = User::all();
+      // dd($users);
+      // dd($friends);
       // dd($id);
       // dd($posts->toArray());
       return view('posts.index')
       ->with([
         'posts' => $posts,
         'Auth' => $Auth,
+        'users' => $users,
+        'friends' => $friends,
       ]);
     }
 

@@ -7,17 +7,41 @@ pairTodo
 @section('left')
   <header>
     <div class="member-header">
-      <span>メンバー一覧</span>
+      @if($Auth)
+      <h3>{{ $Auth->name }}</h3>
+      @else
+      ログインしていません
+      @endif
       <i class="fas fa-user-plus user-plus"></i>
     </div>
 
   </header>
   <div class="member-list">
-    @if($Auth)
-    {{ $Auth->name }}
-    @else
-    ログインしていません
-    @endif
+    <h3>user一覧</h3>
+      <div class="" id="user_list">
+        <ul>
+          @foreach ($users as $user)
+          <li>{{ $user->name }}</li>
+          @endforeach
+        </ul>
+      </div>
+    <h3>pair申請があります</h3>
+      <div class="" id="follower_list">
+        <ul>
+          @foreach ($users as $user)
+          <li>{{ $user->name }}</li>
+          @endforeach
+        </ul>
+      </div>
+    <h3>pair一覧</h3>
+      <div class="" id="follow_list">
+        <ul>
+          @foreach ($users as $user)
+          <li>{{ $user->name }}</li>
+          @endforeach
+        </ul>
+      </div>
+
   </div>
 
 @endsection
