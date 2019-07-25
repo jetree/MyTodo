@@ -41,7 +41,12 @@ class User extends Authenticatable
       return $this->hasMany('App\Post');
     }
 
-    public function friends(){
+    // フォローユーザー＝友達申請をした友達
+    public function follow_friends(){
+      return $this->belongsToMany('App\User','friends','user_id','friend_id');
+    }
+    // フォロワーユーザー＝友達申請された友達
+    public function follower_friends(){
       return $this->belongsToMany('App\User','friends','user_id','friend_id');
     }
 }

@@ -8,7 +8,7 @@ pairTodo
   <header>
     <div class="member-header">
       @if($Auth)
-      <h3>{{ $Auth->name }}</h3>
+      {{ $Auth->name }}
       @else
       ログインしていません
       @endif
@@ -28,16 +28,16 @@ pairTodo
     <h3>pair申請があります</h3>
       <div class="" id="follower_list">
         <ul>
-          @foreach ($users as $user)
-          <li>{{ $user->name }}</li>
+          @foreach ($follower_friends as $follower_friend)
+          <li>{{ $follower_friend->name }}</li>
           @endforeach
         </ul>
       </div>
-    <h3>pair一覧</h3>
+    <h3>pair申請中</h3>
       <div class="" id="follow_list">
         <ul>
-          @foreach ($users as $user)
-          <li>{{ $user->name }}</li>
+          @foreach ($follow_friends as $follow_friend)
+          <li>{{ $follow_friend->name }}</li>
           @endforeach
         </ul>
       </div>

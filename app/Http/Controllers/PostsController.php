@@ -12,19 +12,28 @@ class PostsController extends Controller
 {
     public function index(){
       $Auth = Auth::user();
-      $friends = Auth::user()->friends()->get();
       $posts = Post::all();
       $users = User::all();
-      // dd($users);
-      // dd($friends);
-      // dd($id);
-      // dd($posts->toArray());
+      if ($Auth != null){
+        $follow_friends = Auth::user()->follow_friends()->get();
+        $follower_friends = Auth::user()->follower_friends()->get();
+
+        return view('posts.index')
+        ->with([
+          'posts' => $posts,
+          'Auth' => $Auth,
+          'users' => $users,
+          'follow_friends' => $follow_friends,
+          'follower_friends' => $follower_friends,
+        ]);
+      }
       return view('posts.index')
       ->with([
         'posts' => $posts,
         'Auth' => $Auth,
         'users' => $users,
-        'friends' => $friends,
+        'follow_friends' => [],
+        'follower_friends' => [],
       ]);
     }
 
