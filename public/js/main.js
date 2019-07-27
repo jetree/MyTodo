@@ -5,6 +5,7 @@
   function $modal(){
     const todo_add_btn = document.getElementById('todo_add_btn');
     const add_trigger= document.getElementById('add_trigger');
+    const add_textarea= document.getElementById('add_textarea');
 
     const member_btn= document.getElementById('member_btn');
     const member_trigger= document.getElementById('member_trigger');
@@ -16,6 +17,7 @@
     todo_add_btn.addEventListener('click',function(){
       add_trigger.checked = true;
       mask.classList.remove('hidden');
+      add_textarea.focus();
     })
 
     member_btn.addEventListener('click',function(){
@@ -67,6 +69,7 @@
         document.getElementById('edit_trigger').checked = true;
         document.getElementById('mask').classList.remove('hidden');
         console.log(document.getElementById('mask').classList);
+        textarea.focus();
         Edit.action = "/posts/" + $id
 
       });
