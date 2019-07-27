@@ -12,12 +12,17 @@ class PostsController extends Controller
 {
     public function index(){
       $Auth = Auth::user();
+      $id = Auth::id();
       $posts = Post::all();
-      $users = User::all();
+      $users = User::whereNotIn('id',[$id])->get();
+      // dd($users);
       if ($Auth != null){
         $follow_friends = Auth::user()->follow_friends()->get();
         $follower_friends = Auth::user()->follower_friends()->get();
-
+      }else {
+        $follow_friends = [];
+        $follower_friends = [];
+      }
         return view('posts.index')
         ->with([
           'posts' => $posts,
@@ -26,15 +31,6 @@ class PostsController extends Controller
           'follow_friends' => $follow_friends,
           'follower_friends' => $follower_friends,
         ]);
-      }
-      return view('posts.index')
-      ->with([
-        'posts' => $posts,
-        'Auth' => $Auth,
-        'users' => $users,
-        'follow_friends' => [],
-        'follower_friends' => [],
-      ]);
     }
 
     public function store(Request $request){
