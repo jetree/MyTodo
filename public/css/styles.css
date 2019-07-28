@@ -204,6 +204,18 @@ textarea{
   font-size: 22px;
   padding-left: 10px;
   padding-top: 5px;
+  padding: 5px 10px;
+}
+
+.member-list  ul{
+  padding-left: 20px;
+}
+
+.member-list  li{
+  margin: 15px;
+  padding: 0px 10px;
+  line-height: 20px;
+  list-style: none;
 }
 
 

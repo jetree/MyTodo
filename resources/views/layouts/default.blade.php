@@ -10,6 +10,7 @@
     <title>@yield('title')</title>
 
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://kit.fontawesome.com/77d57efb85.js"></script>
 
@@ -88,5 +89,6 @@
       </div>
     </footer>
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/friend.js') }}"></script>
   </body>
 </html>

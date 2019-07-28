@@ -47,6 +47,6 @@ class User extends Authenticatable
     }
     // フォロワーユーザー＝友達申請された友達
     public function follower_friends(){
-      return $this->belongsToMany('App\User','friends','user_id','friend_id');
+      return $this->belongsToMany('App\User','friends','friend_id','user_id');
     }
 }

@@ -6,14 +6,16 @@ pairTodo
 
 @section('left')
   <header>
-    <div class="member-header">
-      @if($Auth)
+    @if($Auth)
+    <div id="auth_name" class="member-header" data-id="{{ $Auth->id }}">
       {{ $Auth->name }}
-      @else
-      ログインしていません
-      @endif
       <i class="fas fa-user-plus user-plus"></i>
     </div>
+    @else
+      <div id="auth_name" class="class="member-header"">
+        ログインしていません
+      </div>
+    @endif
 
   </header>
   <div class="member-list">
@@ -21,7 +23,12 @@ pairTodo
       <div class="" id="user_list">
         <ul>
           @foreach ($users as $user)
-          <li>{{ $user->name }}</li>
+          <li>
+            {{ $user->name }}
+            <a  class="friend-add" href="#" data-id="{{ $user->id }}">
+              <i  class="fas fa-user-plus user-plus"></i>
+            </a>
+          </li>
           @endforeach
         </ul>
       </div>
@@ -38,6 +45,14 @@ pairTodo
         <ul>
           @foreach ($follow_friends as $follow_friend)
           <li>{{ $follow_friend->name }}</li>
+          @endforeach
+        </ul>
+      </div>
+    <h3>相互申請</h3>
+      <div class="" id="->namer_list">
+        <ul>
+          @foreach ($friends as $friend)
+          <li>{{ $friend->name }}</li>
           @endforeach
         </ul>
       </div>
