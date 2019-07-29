@@ -36,7 +36,7 @@ class HomeController extends Controller
       $friend->save();
       return response()->json(
             [
-                'data' =>1
+                'data' => 'ともだち申請を送りました'
             ],
             200,[],
             JSON_UNESCAPED_UNICODE

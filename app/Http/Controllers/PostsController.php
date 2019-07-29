@@ -21,12 +21,15 @@ class PostsController extends Controller
         $all_follow_friends = Auth::user()->follow_friends()->get();
         // 全てのフォローを受けたユーザー
         $all_follower_friends = Auth::user()->follower_friends()->get();
-        // 重複＝相互フォロー状態を抽出
+        // 相互フォロー状態を抽出
         $friends = $all_follower_friends->intersect($all_follow_friends);
+        // 全てのフォローしたユーザー + 全てのフォローを受けたユーザー
+        $merge_friends = $all_follow_friends->merge($all_follower_friends);
         // 相互フォローから全てのフォローを受けたユーザーを除外
-        $follow_friends = $friends->diff($all_follower_friends);
+        $follow_friends = $merge_friends->diff($all_follower_friends);
         // 相互フォローから全てのフォローしたユーザーを除外
-        $follower_friends = $friends->diff($all_follow_friends);
+        $follower_friends = $merge_friends->diff($all_follow_friends);
+        // dd($all_follow_friends);
       }else {
         $follow_friends = [];
         $follower_friends = [];
