@@ -76,7 +76,7 @@
   </nav>
     <main>
       <input id="member_trigger" type="checkbox">
-      <div class="left-conteiner" id="left-conteiner">
+      <div class="left-conteiner" id="left_conteiner">
         @yield('left')
       </div>
       <div class="conteiner main">

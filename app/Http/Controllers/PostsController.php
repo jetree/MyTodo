@@ -11,6 +11,8 @@ use App\Friend;
 class PostsController extends Controller
 {
     public function index(){
+      // $a = Friend::all();
+      // dd($a->toArray());
       $Auth = Auth::user();
       $id = Auth::id();
       $posts = Post::all();

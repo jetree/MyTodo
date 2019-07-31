@@ -38,11 +38,20 @@ class HomeController extends Controller
             [
                 'data' => 'ともだち申請を送りました'
             ],
-            200,[],
-            JSON_UNESCAPED_UNICODE
-        );
-
-
+          );
+    }
+    public function destroy(Request $request){
+      Log::debug($request);
+      $friend = Friend::where([
+        ['user_id',$request->Auth_id],
+        ['friend_id',$request->user_id],
+      ])->first();
+      $friend->delete();
+      return response()->json(
+            [
+                'data' => '解除しました'
+            ],
+          );
     }
 
 }

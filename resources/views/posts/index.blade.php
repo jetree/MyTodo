@@ -9,7 +9,6 @@ pairTodo
     @if($Auth)
     <div id="auth_name" class="member-header" data-id="{{ $Auth->id }}">
       {{ $Auth->name }}
-      <i class="fas fa-user-plus user-plus"></i>
     </div>
     @else
       <div id="auth_name" class="class="member-header"">
@@ -19,40 +18,79 @@ pairTodo
 
   </header>
   <div class="member-list">
-    <h3>user一覧</h3>
+      <div class="member">
+        user一覧
+        <i class="fas fa-chevron-up f-right"></i>
+      </div>
       <div class="" id="user_list">
         <ul>
           @foreach ($users as $user)
           <li>
             {{ $user->name }}
-            <a  class="friend-add" href="#" data-id="{{ $user->id }}">
-              <i  class="fas fa-user-plus user-plus"></i>
+            @if($follow_friends->contains($user) || $friends->contains($user))
+              <a  class="friend-remove" href="#" data-id="{{ $user->id }}">
+                <i class="fas fa-user-minus f-right"></i>
+              </a>
+              <a  class="friend-add hidden" href="#" data-id="{{ $user->id }}">
+                <i  class="fas fa-user-plus f-right"></i>
+              </a>
+            @else
+              <a  class="friend-remove hidden" href="#" data-id="{{ $user->id }}">
+                <i class="fas fa-user-minus f-right"></i>
+              </a>
+              <a  class="friend-add" href="#" data-id="{{ $user->id }}">
+                <i  class="fas fa-user-plus f-right"></i>
+              </a>
+            @endif
+          </li>
+          @endforeach
+        </ul>
+      </div>
+      <div class="member">
+        pair申請があります
+        <i class="fas fa-chevron-up f-right"></i>
+      </div>
+      <div class="" id="follower_list">
+        <ul>
+          @foreach ($follower_friends as $follower_friend)
+          <li>
+            {{ $follower_friend->name }}
+            <a  class="friend-add" href="#" data-id="{{ $follower_friend->id }}">
+              <i  class="fas fa-user-plus f-right"></i>
             </a>
           </li>
           @endforeach
         </ul>
       </div>
-    <h3>pair申請があります</h3>
-      <div class="" id="follower_list">
-        <ul>
-          @foreach ($follower_friends as $follower_friend)
-          <li>{{ $follower_friend->name }}</li>
-          @endforeach
-        </ul>
+      <div class="member">
+        pair申請中
+        <i class="fas fa-chevron-up f-right"></i>
       </div>
-    <h3>pair申請中</h3>
       <div class="" id="follow_list">
         <ul>
           @foreach ($follow_friends as $follow_friend)
-          <li>{{ $follow_friend->name }}</li>
+          <li>
+            {{ $follow_friend->name }}
+            <a  class="friend-remove" href="#" data-id="{{ $follow_friend->id }}">
+              <i class="fas fa-user-minus f-right"></i>
+            </a>
+          </li>
           @endforeach
         </ul>
       </div>
-    <h3>相互申請</h3>
-      <div class="" id="->namer_list">
+      <div class="member">
+        pair一覧
+        <i class="fas fa-chevron-up f-right"></i>
+      </div>
+      <div class="" id="friend_list">
         <ul>
           @foreach ($friends as $friend)
-          <li>{{ $friend->name }}</li>
+          <li>
+            {{ $friend->name }}
+            <a  class="friend-remove" href="#" data-id="{{ $friend->id }}">
+              <i class="fas fa-user-minus f-right"></i>
+            </a>
+          </li>
           @endforeach
         </ul>
       </div>

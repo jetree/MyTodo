@@ -175,7 +175,7 @@ textarea{
   text-align: center;
 }
 
-#left-conteiner{
+#left_conteiner{
   display: none;
   position: fixed;
   top:0;
@@ -195,9 +195,16 @@ textarea{
   line-height: 20px;
 }
 
-.user-plus{
+.member{
+  font-size: 20px;
+  padding: 10px;
+  line-height: 20px;
+}
+
+.f-right{
   /* padding-left: 50px; */
   float: right;
+  font-size: 16px;
 }
 
 .member-list{
@@ -212,7 +219,7 @@ textarea{
 }
 
 .member-list  li{
-  margin: 15px;
+  margin: 10px;
   padding: 0px 10px;
   line-height: 20px;
   list-style: none;
@@ -243,7 +250,7 @@ footer{
 #member_trigger{
   display: none;
 }
-#member_trigger:checked ~ #left-conteiner{
+#member_trigger:checked ~ #left_conteiner{
   display: block;
 }
 #member_trigger:checked ~ #member-btn-label{

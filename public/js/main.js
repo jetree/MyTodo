@@ -54,7 +54,7 @@
     const btn = document.getElementById('edit_btn');
     const textarea = document.getElementById('edit_textarea');
 
-    console.log(cmds)
+    // console.log(cmds)
     let i;
 
     for (i=0; i < cmds.length; i++){
