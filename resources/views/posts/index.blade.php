@@ -58,6 +58,9 @@ pairTodo
             <a  class="friend-add" href="#" data-id="{{ $follower_friend->id }}">
               <i  class="fas fa-user-plus f-right"></i>
             </a>
+            <a  class="friend-remove hidden" href="#" data-id="{{ $follower_friend->id }}">
+              <i class="fas fa-user-minus f-right"></i>
+            </a>
           </li>
           @endforeach
         </ul>
@@ -74,6 +77,9 @@ pairTodo
             <a  class="friend-remove" href="#" data-id="{{ $follow_friend->id }}">
               <i class="fas fa-user-minus f-right"></i>
             </a>
+            <a  class="friend-add hidden" href="#" data-id="{{ $follow_friend->id }}">
+              <i  class="fas fa-user-plus f-right"></i>
+            </a>
           </li>
           @endforeach
         </ul>
@@ -89,6 +95,9 @@ pairTodo
             {{ $friend->name }}
             <a  class="friend-remove" href="#" data-id="{{ $friend->id }}">
               <i class="fas fa-user-minus f-right"></i>
+            </a>
+            <a  class="friend-add hidden" href="#" data-id="{{ $friend->id }}">
+              <i  class="fas fa-user-plus f-right"></i>
             </a>
           </li>
           @endforeach

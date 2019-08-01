@@ -27,9 +27,9 @@ $(function() {
         .done(function(data){
           area = document.getElementById('left_conteiner');
           console.log(user_id)
-          icon = area.querySelectorAll("[data-id='" + user_id +"']")
-          console.log(icon)
-          // icon.classList.toggle('hidden')
+          icons = area.querySelectorAll("[data-id='" + user_id +"']")
+          console.log(icons)
+          icons.forEach(icon => icon.classList.toggle('hidden'))
         })
         .fail(function(data){
           alert(失敗しました);
@@ -56,8 +56,9 @@ $(function() {
         .done(function(data){
           area = document.getElementById('left_conteiner');
           console.log(user_id)
-          icon = area.querySelectorAll("[data-id='" + user_id +"']")
-          // icon.classList.toggle('hidden')
+          icons = area.querySelectorAll("[data-id='" + user_id +"']")
+          console.log(icons)
+          icons.forEach(icon => icon.classList.toggle('hidden'))
         })
         .fail(function(data){
           alert(失敗しました);
