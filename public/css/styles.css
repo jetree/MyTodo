@@ -153,6 +153,10 @@ form > p{
   display: none;
 }
 
+.selectbox{
+  margin: 0 20px 15px;
+}
+
 
 textarea{
   font-size: 22px;

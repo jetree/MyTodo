@@ -171,9 +171,19 @@ pairTodo
     <form action="{{ url('/') }}" method="post" id="form_add" ?>
       {{ csrf_field() }}
       @if ($errors->has('todo'))
-      <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
+        <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
       @endif
-      <p>selectbox</p>
+      <div class="form-group row selectbox">
+        <div class="col-sm-4">
+          共有するpairを選んでください
+        </div>
+          <select class="col-sm-8 select-success" name="feiend_id">
+            <option value="" label="共有しない"></option>
+            @foreach ($friends as $friend)
+            <option value="{{ $friend->id }}" label="{{ $friend->name }}"></option>
+            @endforeach
+          </select>
+      </div>
       <p>
         <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
       </p>
