@@ -20,7 +20,7 @@ pairTodo
   <div class="member-list">
       <div class="member">
         user一覧
-        <i class="fas fa-chevron-up f-right"></i>
+        <i id="user_list_open" class="fas fa-chevron-up f-right"></i>
       </div>
       <div class="" id="user_list">
         <ul>
@@ -48,7 +48,7 @@ pairTodo
       </div>
       <div class="member">
         pair申請があります
-        <i class="fas fa-chevron-up f-right"></i>
+        <i id="follower_list_open" class="fas fa-chevron-up f-right"></i>
       </div>
       <div class="" id="follower_list">
         <ul>
@@ -67,7 +67,7 @@ pairTodo
       </div>
       <div class="member">
         pair申請中
-        <i class="fas fa-chevron-up f-right"></i>
+        <i id="follow_list_open" class="fas fa-chevron-up f-right"></i>
       </div>
       <div class="" id="follow_list">
         <ul>
@@ -86,7 +86,7 @@ pairTodo
       </div>
       <div class="member">
         pair一覧
-        <i class="fas fa-chevron-up f-right"></i>
+        <i id="friend_list_open" class="fas fa-chevron-up f-right"></i>
       </div>
       <div class="" id="friend_list">
         <ul>
@@ -173,6 +173,7 @@ pairTodo
       @if ($errors->has('todo'))
       <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
       @endif
+      <p>selectbox</p>
       <p>
         <textarea id="add_textarea" name="todo" placeholder="enter todo" value="{{ old('$todo') }}"></textarea>
       </p>

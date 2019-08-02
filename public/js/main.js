@@ -85,9 +85,34 @@
     }
   }
 
+// friendlistの表示非表示
+  function $list_open(element,element_open){
+    element_open.addEventListener('click',function(){
+      // listの高さを０にする
+      // overflow:hidden
+      element.classList.toggle('close')
+      // マークを上下反転する
+      element_open.classList.toggle('icon-reverse')
+    })
+  }
+
+  const user_list = document.getElementById('user_list')
+  const user_list_open = document.getElementById('user_list_open')
+  const follower_list = document.getElementById('follower_list')
+  const follower_list_open = document.getElementById('follower_list_open')
+  const follow_list = document.getElementById('follow_list')
+  const follow_list_open = document.getElementById('follow_list_open')
+  const friend_list = document.getElementById('friend_list')
+  const friend_list_open = document.getElementById('friend_list_open')
+
   $modal();
   $delete();
   $edit();
   $todo_add_area();
+  $list_open(user_list,user_list_open)
+  $list_open(follower_list,follower_list_open)
+  $list_open(follow_list,follow_list_open)
+  $list_open(friend_list,friend_list_open)
+
 
 })();
