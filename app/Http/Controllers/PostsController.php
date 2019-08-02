@@ -11,11 +11,9 @@ use App\Friend;
 class PostsController extends Controller
 {
     public function index(){
-      // $a = Friend::all();
-      // dd($a->toArray());
       $Auth = Auth::user();
       $id = Auth::id();
-      $posts = Post::all();
+      $posts = Post::where('user_id',[$id])->get();
       $users = User::whereNotIn('id',[$id])->get();
       // dd($users);
       if ($Auth != null){
@@ -33,6 +31,7 @@ class PostsController extends Controller
         $follower_friends = $merge_friends->diff($all_follow_friends);
         // dd($all_follow_friends);
       }else {
+        $posts = Post::whereNull('user_id')->get();
         $follow_friends = [];
         $follower_friends = [];
         $friends = [];
