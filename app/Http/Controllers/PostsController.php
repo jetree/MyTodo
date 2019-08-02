@@ -16,7 +16,7 @@ class PostsController extends Controller
       $posts = Post::where('user_id',[$id])->get();
       $users = User::whereNotIn('id',[$id])->get();
       // dd($users);
-      if ($Auth != null){
+      if (Auth::check()){
         // 全てのフォローしたユーザー
         $all_follow_friends = Auth::user()->follow_friends()->get();
         // 全てのフォローを受けたユーザー
