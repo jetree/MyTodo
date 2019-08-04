@@ -47,6 +47,25 @@
         </ul>
       </div>
       <div class="member">
+        pair一覧
+        <i id="friend_list_open" class="fas fa-chevron-up f-right"></i>
+      </div>
+      <div class="" id="friend_list">
+        <ul>
+          @foreach ($friends as $friend)
+          <li>
+            {{ $friend->name }}
+            <a  class="friend-remove" href="#" data-id="{{ $friend->id }}">
+              <i class="fas fa-user-minus f-right"></i>
+            </a>
+            <a  class="friend-add hidden" href="#" data-id="{{ $friend->id }}">
+              <i  class="fas fa-user-plus f-right"></i>
+            </a>
+          </li>
+          @endforeach
+        </ul>
+      </div>
+      <div class="member">
         pair申請があります
         <i id="follower_list_open" class="fas fa-chevron-up f-right"></i>
       </div>
@@ -78,25 +97,6 @@
               <i class="fas fa-user-minus f-right"></i>
             </a>
             <a  class="friend-add hidden" href="#" data-id="{{ $follow_friend->id }}">
-              <i  class="fas fa-user-plus f-right"></i>
-            </a>
-          </li>
-          @endforeach
-        </ul>
-      </div>
-      <div class="member">
-        pair一覧
-        <i id="friend_list_open" class="fas fa-chevron-up f-right"></i>
-      </div>
-      <div class="" id="friend_list">
-        <ul>
-          @foreach ($friends as $friend)
-          <li>
-            {{ $friend->name }}
-            <a  class="friend-remove" href="#" data-id="{{ $friend->id }}">
-              <i class="fas fa-user-minus f-right"></i>
-            </a>
-            <a  class="friend-add hidden" href="#" data-id="{{ $friend->id }}">
               <i  class="fas fa-user-plus f-right"></i>
             </a>
           </li>
