@@ -29,7 +29,8 @@ class PostsController extends Controller
         $follow_friends = $merge_friends->diff($all_follower_friends);
         // 相互フォローから全てのフォローしたユーザーを除外
         $follower_friends = $merge_friends->diff($all_follow_friends);
-        // dd($all_follow_friends);
+        // postに共有先が自分になっているpostを追加
+        $posts = $posts->merge(Post::where('friend_id',[$id])->get());
       }else {
         $posts = Post::whereNull('user_id')->get();
         $follow_friends = [];

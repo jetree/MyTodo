@@ -88,7 +88,6 @@
         <h2>おまけ</h2>
       </div>
     </footer>
-    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/friend.js') }}"></script>
-  </body>
+      @yield('script')
+    </body>
 </html>

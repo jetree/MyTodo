@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-pairTodo
+{{ config('app.name', 'Laravel') }}
 @endsection
 
 @section('left')
@@ -177,7 +177,7 @@ pairTodo
         <div class="col-sm-4">
           共有するpairを選んでください
         </div>
-          <select class="col-sm-8 select-success" name="feiend_id">
+          <select class="col-sm-8 select-success" name="friend_id">
             <option value="" label="共有しない"></option>
             @foreach ($friends as $friend)
             <option value="{{ $friend->id }}" label="{{ $friend->name }}"></option>
@@ -212,4 +212,9 @@ pairTodo
       </div>
     </form>
   </div>
+@endsection
+
+@section('script')
+  <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/friend.js') }}"></script>
 @endsection
