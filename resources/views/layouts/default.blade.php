@@ -85,7 +85,7 @@
     </main>
     <footer>
       <div class="conteiner">
-        <h2>おまけ</h2>
+        ©️pairlu　2019
       </div>
     </footer>
       @yield('script')
