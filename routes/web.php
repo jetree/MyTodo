@@ -19,5 +19,6 @@ Route::post('/', 'PostsController@store');
 Route::delete('/posts/{post}','PostsController@destroy');
 Route::patch('/posts/{post}','PostsController@update');
 Route::get('/posts/{post}','PostsController@destroy');
+Route::patch('/{request}','PostsController@done');
 Route::post('/{request}','HomeController@store');
 Route::delete('/{request}','HomeController@destroy');

@@ -70,6 +70,10 @@ h3{
   min-height: 70px;
 }
 
+.task-done{
+  background-color: #f66;
+}
+
 a{
   text-decoration: none;
   color: inherit;

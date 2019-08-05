@@ -32,6 +32,54 @@
     })
   }
 
+  //タスク完了機能
+  function $done(){
+    const cmds = document.getElementsByClassName('done');
+    let i;
+    let post_id;
+    let post;
+    let status;
+
+    for (i = 0; i < cmds.length; i++){
+      post_id = cmds[i].dataset.id;
+      post = document.getElementById('post_' + post_id);
+      status = post.dataset.status;
+
+
+      if(status == 1){
+        post.classList.add('task-done')
+      }
+      // クリックイベント
+      cmds[i].addEventListener('click',function(e){
+        e.preventDefault();
+
+        $.ajax({
+          headers:{
+            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+          },
+          url:"{{ action('PostsController@done') }}",
+          type:'POST',
+          data:{
+            // 'status' : status,
+            'post_id' : post_id,
+            '_method' : 'PATCH',
+          }
+        })
+          .done(function(data){
+            console.log(data);
+            if(data == "完了しました"){
+              post.classList.add('task-done')
+            }else{
+              post.classList.remove('task-done')
+            }
+          })
+          .fail(function(data){
+            alert(失敗しました);
+          })
+      });
+    }
+  }
+
   // 削除機能
   function $delete(){
     let cmds = document.getElementsByClassName('del');
@@ -41,7 +89,7 @@
       cmds[i].addEventListener('click',function(e){
         e.preventDefault();
         if (confirm('削除しますか？')){
-          let Del = document.getElementById('form_' + this.dataset.id)
+          let Del = document.getElementById('del_' + this.dataset.id);
           Del.submit();
         };
       });
@@ -50,11 +98,10 @@
 
   // 編集機能
   function $edit(){
-    let cmds = document.getElementsByClassName('edit');
+    const cmds = document.getElementsByClassName('edit');
     const btn = document.getElementById('edit_btn');
     const textarea = document.getElementById('edit_textarea');
 
-    // console.log(cmds)
     let i;
 
     for (i=0; i < cmds.length; i++){
@@ -106,6 +153,7 @@
   const friend_list_open = document.getElementById('friend_list_open')
 
   $modal();
+  $done();
   $delete();
   $edit();
   $todo_add_area();

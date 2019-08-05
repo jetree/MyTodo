@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use App\Friend;
+use Log;
 
 class PostsController extends Controller
 {
@@ -73,6 +74,29 @@ class PostsController extends Controller
       $post->todo = $request->todo;
       $post->save();
       return redirect('/');
+    }
+
+    public function done(Request $request){
+      Log::debug($request);
+      $post = Post::where('id',$request->post_id)->first();
+      Log::debug($post->status);
+      if($post->status == 0){
+        $post->status = 1;
+        $post->save();
+        Log::debug($post->status);
+        return response()->json(
+            '完了しました'
+        );
+      }else{
+        Log::debug($post);
+        $post->status = 0;
+        $post->save();
+        Log::debug($post);
+        return response()->json(
+          '取り消しました'
+        );
+      }
+
     }
 
 

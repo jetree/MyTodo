@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('title')
+{{ config('app.name', 'Laravel') }}
+@endsection
+
 @section('main')
 <div class="container">
     <div class="row justify-content-center">

@@ -111,7 +111,7 @@
 @section('main')
   <ul>
     @forelse ($posts as $post)
-    <li class="todo">
+    <li class="todo" data-status="{{$post->status}}" id="post_{{ $post->id }}">
       @if($post->user_id)
       <h3>{{ $post->user->name }}</h3>
       @else
@@ -120,9 +120,10 @@
       <h2 id="text_{{ $post->id }}">{!! nl2br(e($post->todo)) !!}</h2>
       <ul class="submenu">
         <li>
-          <a href="">
+          <a href="" class="done" data-id="{{ $post->id }}">
             <i class="far fa-check-square"></i>
           </a>
+          </form>
         </li>
         <li>
           <a href="">
@@ -138,7 +139,7 @@
           <a href="" class="del" data-id="{{ $post->id }}">
             <i class="fas fa-trash-alt"></i>
           </a>
-          <form class="d-none" mathod="post" action="{{ url('/posts' , $post->id )}}" id="form_{{ $post->id }}">
+          <form class="d-none" mathod="post" action="{{ url('/posts' , $post->id )}}" id="del_{{ $post->id }}">
             {{ csrf_field() }}
             {{ method_field('delete')}}
           </form>
