@@ -11,15 +11,24 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+
+
     <script src="https://kit.fontawesome.com/77d57efb85.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    @if(app('env')=='local')
+      <script src="{{ asset('js/app.js') }}"></script>
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endif
+    @if(app('env')=='production')
+      <script src="{{ secure_asset('js/app.js') }}"></script>
+      <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    @endif
+
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
 
   </head>
