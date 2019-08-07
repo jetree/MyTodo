@@ -216,6 +216,12 @@
 @endsection
 
 @section('script')
-  <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('js/friend.js') }}"></script>
+  @if(app('env')=='local')
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/friend.js') }}"></script>
+  @endif
+  @if(app('env')=='production')
+    <script type="text/javascript" src="{{ secure_asset('js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ secure_asset('js/friend.js') }}"></script>
+@endif
 @endsection

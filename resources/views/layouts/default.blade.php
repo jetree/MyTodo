@@ -94,7 +94,7 @@
     </main>
     <footer>
       <div class="conteiner">
-        ©️pairlu　2019
+        ©︎pairlu　2019
       </div>
     </footer>
       @yield('script')
