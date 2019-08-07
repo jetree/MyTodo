@@ -17,7 +17,7 @@ $(function() {
         headers:{
           'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
         },
-        url:"{{ action('HomeController@store') }}",
+        url:"{{ action('friendsController@store') }}",
         type:'POST',
         data:{
           'Auth_id' : Auth_id,
@@ -45,7 +45,7 @@ $(function() {
         headers:{
           'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
         },
-        url:"{{ action('HomeController@destroy') }}",
+        url:"{{ action('FriendsController@destroy') }}",
         type:'POST',
         data:{
           'Auth_id' : Auth_id,
