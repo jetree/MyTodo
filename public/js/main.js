@@ -32,26 +32,36 @@
     })
   }
 
+  // タスク完了初期表示
+  function $done_class_add(){
+    const target  = document.getElementsByClassName('todo');
+    let i;
+
+    for(i = 0; i < target.length; i++){
+      status = target[i].dataset.status
+      if(status == 1){
+        target[i].classList.add('task-done')
+      }
+    }
+  }
+
   //タスク完了機能
   function $done(){
     const cmds = document.getElementsByClassName('done');
+    console.log(cmds);
     let i;
     let post_id;
     let post;
     let status;
 
     for (i = 0; i < cmds.length; i++){
-      post_id = cmds[i].dataset.id;
-      post = document.getElementById('post_' + post_id);
-      status = post.dataset.status;
 
-
-      if(status == 1){
-        post.classList.add('task-done')
-      }
       // クリックイベント
       cmds[i].addEventListener('click',function(e){
         e.preventDefault();
+        post_id = this.dataset.id;
+        post = document.getElementById('post_' + post_id);
+        status = post.dataset.status;
 
         $.ajax({
           headers:{
@@ -68,6 +78,7 @@
           .done(function(data){
             console.log(data);
             if(data == "完了しました"){
+              console.log(post);
               post.classList.add('task-done')
             }else{
               post.classList.remove('task-done')
@@ -154,6 +165,7 @@
 
   $modal();
   $done();
+  $done_class_add();
   $delete();
   $edit();
   $todo_add_area();
