@@ -25,7 +25,7 @@
       <div class="" id="user_list">
         <ul>
           @foreach ($users as $user)
-          <li>
+          <li data-friend-id="{{ $user->id }}">
             {{ $user->name }}
             @if($follow_friends->contains($user) || $friends->contains($user))
               <a  class="friend-remove" href="#" data-id="{{ $user->id }}">
@@ -53,7 +53,7 @@
       <div class="" id="friend_list">
         <ul>
           @foreach ($friends as $friend)
-          <li>
+          <li data-friend-id="{{ $friend->id }}">
             {{ $friend->name }}
             <a  class="friend-remove" href="#" data-id="{{ $friend->id }}">
               <i class="fas fa-user-minus f-right"></i>
@@ -72,7 +72,7 @@
       <div class="" id="follower_list">
         <ul>
           @foreach ($follower_friends as $follower_friend)
-          <li>
+          <li data-friend-id="{{ $follower_friend->id }}">
             {{ $follower_friend->name }}
             <a  class="friend-add" href="#" data-id="{{ $follower_friend->id }}">
               <i  class="fas fa-user-plus f-right"></i>
@@ -91,7 +91,7 @@
       <div class="" id="follow_list">
         <ul>
           @foreach ($follow_friends as $follow_friend)
-          <li>
+          <li data-friend-id="{{ $follow_friend->id }}">
             {{ $follow_friend->name }}
             <a  class="friend-remove" href="#" data-id="{{ $follow_friend->id }}">
               <i class="fas fa-user-minus f-right"></i>
