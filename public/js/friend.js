@@ -35,24 +35,17 @@ $(function() {
         icons.forEach(icon => icon.classList.toggle('hidden'))
 
         // アイコンの移動処理
-        // friend_idをもつliを取得
+        // friend_idをもつli(username icon)を取得
         const li_friend = area.querySelectorAll("[data-friend-id='" + user_id +"']")
-        console.log(li_friend)
         if(li_friend.length == 1){
-          console.log('1個だよ')
           // follow/follower/friend いずれでもない
           // deleateはありえない
         }else{
-          console.log('2個だよ')
-          console.log(follow_list)
-          // /friend　どれに属するか
+          // follow/follower/friend どれに属するか
           // follower->ありえない
-          console.log(follow_list[0].contains(li_friend[1]))
-          if(follow_list[0].contains(li_friend[1])){
-            // follow->nodeの削除
+          if(follow_list[0].contains(li_friend[1])){  // follow->nodeの削除
             li_friend[1].remove()
-          }else{
-            // friend->followerに移動
+          }else{  // friend->followerに移動
             follower_list[0].insertBefore(li_friend[1],follower_list.firstChild)
           }
         }
@@ -83,35 +76,25 @@ $(function() {
           const icons = area.querySelectorAll("[data-id='" + user_id +"']")
           icons.forEach(icon => icon.classList.toggle('hidden'))
 
-          // アイコンの移動処理
+          // 移動処理
           // friend_idをもつliを取得
           const li_friend = area.querySelectorAll("[data-friend-id='" + user_id +"']")
           // length=1  => follow/follower/friend いずれでもない
           if(li_friend.length == 1){
-            // // コピーしてfollowに追加
-            // // li_friendやfollow_listは配列っぽく帰ってくるので[0]にする
-            // const li_friend_copy = li_friend[0].cloneNode(true)
-            // // follow_listの最初に追加
-            // follow_list[0].insertBefore(li_friend_copy,follow_list.firstChild)
-            // // コピーした子要素のアイコンにクリックイベントを追加する
-            // const icon_copy = li_friend_copy.getElementsByClassName('friend-remove')
-            // icon_copy.addEventListener('click',$member_remove)
-
-            // jQuery
-            let li_friend_copy = $(li_friend[0]).clone(true)
-            let icon_copy =  li_friend_copy[0].getElementsByClassName('friend-remove')
+            // コピーしてfollowに追加
+            // li_friendやfollow_listは配列っぽく帰ってくるので[0]にする
+            const li_friend_copy = li_friend[0].cloneNode(true)
+            // // follow_listのul直下の最初に追加
+            follow_list[0].insertBefore(li_friend_copy,follow_list.firstChild)
+            // // コピーした子要素のアイコンにクリックイベントを追加する→複製したアイコンクリックで、複製もとのいアイコンをクリックzする
+            let icon_copy = li_friend_copy.getElementsByClassName('friend-remove')
             let icon_origin = li_friend[0].getElementsByClassName('friend-remove')
-            console.log(icon_origin)
             icon_copy[0].addEventListener('click',function(){
               icon_origin[0].click()
             })
-             console.log(icon_copy)
-            follow_list[0].insertBefore(li_friend_copy[0],follow_list.firstChild)
-
 
           }else{
-            console.log('2個だよ')
-            // follow/follower/friend　どれに属するか
+            // follow/follower/friend どれに属するか
             // follower->friendに移動
             friend_list[0].insertBefore(li_friend[1],friend_list.firstChild)
             // follow->ありえない
