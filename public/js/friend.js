@@ -1,5 +1,7 @@
 // // pair登録処理
 $(function() {
+  'use strict'
+
   const cmds_add = document.getElementsByClassName('friend-add');
   const cmds_remove = document.getElementsByClassName('friend-remove');
   const Auth = document.getElementById('auth_name');
@@ -12,7 +14,7 @@ $(function() {
   const follow_list = document.getElementById('follow_list').children
 
   for (i = 0; i < cmds_add.length; i++){
-    cmds_add[i].addEventListener('click',function(){
+    cmds_add[i].addEventListener('click',function $member_add(){
       user_id = this.dataset.id;
       $.ajax({
         headers:{
@@ -27,20 +29,21 @@ $(function() {
       })
         .done(function(data){
           // アイコン+-入れ替え処理
-          area = document.getElementById('left_conteiner');
-          icons = area.querySelectorAll("[data-id='" + user_id +"']")
+          const area = document.getElementById('left_conteiner');
+          const icons = area.querySelectorAll("[data-id='" + user_id +"']")
           icons.forEach(icon => icon.classList.toggle('hidden'))
 
           // アイコンの移動処理
           // friend_idをもつliを取得
-          li_friend = area.querySelectorAll("[data-friend-id='" + user_id +"']")
+          const li_friend = area.querySelectorAll("[data-friend-id='" + user_id +"']")
           // length=1  => follow/follower/friend いずれでもない
           if(li_friend.length == 1){
             // コピーしてfollowに追加
             // li_friendやfollow_listは配列っぽく帰ってくるので[0]にする
-            li_friend_copy = li_friend[0].cloneNode(true)
+            const li_friend_copy = $(li_friend[0]).clone(true,true)
+            // コピーした子要素のアイコンにクリックイベントを追加する
             // follow_listの最初に追加
-            follow_list[0].insertBefore(li_friend_copy,follow_list.firstChild)
+            follow_list[0].insertBefore(li_friend_copy[0],follow_list.firstChild)
           }else{
             console.log('2個だよ')
             // follow/follower/friend　どれに属するか
@@ -58,7 +61,7 @@ $(function() {
 
 
   for (i = 0; i < cmds_remove.length; i++){
-    cmds_remove[i].addEventListener('click',function(){
+    cmds_remove[i].addEventListener('click',function $member_remove(){
       user_id = this.dataset.id;
       $.ajax({
         headers:{
@@ -74,13 +77,13 @@ $(function() {
       })
         .done(function(data){
           // アイコン+-入れ替え処理
-          area = document.getElementById('left_conteiner');
-          icons = area.querySelectorAll("[data-id='" + user_id +"']")
+          const area = document.getElementById('left_conteiner');
+          const icons = area.querySelectorAll("[data-id='" + user_id +"']")
           icons.forEach(icon => icon.classList.toggle('hidden'))
 
           // アイコンの移動処理
           // friend_idをもつliを取得
-          li_friend = area.querySelectorAll("[data-friend-id='" + user_id +"']")
+          const li_friend = area.querySelectorAll("[data-friend-id='" + user_id +"']")
           console.log(li_friend)
           if(li_friend.length == 1){
             console.log('1個だよ')
