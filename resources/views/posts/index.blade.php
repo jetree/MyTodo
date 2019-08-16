@@ -9,6 +9,9 @@
     @if($Auth)
     <div id="auth_name" class="member-header" data-id="{{ $Auth->id }}">
       {{ $Auth->name }}
+      <a  class="" href="{{ url('/users/{$Auth}') }}">
+        <i class="fas fa-address-card f-right"></i>
+      </a>
     </div>
     @else
       <div id="auth_name" class="class="member-header"">

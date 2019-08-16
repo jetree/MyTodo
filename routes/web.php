@@ -22,3 +22,4 @@ Route::get('/posts/{post}','PostsController@destroy');
 Route::patch('/{request}','PostsController@done');
 Route::post('/{request}','FriendsController@store');
 Route::delete('/{request}','FriendsController@destroy');
+Route::get('/users/{Auth}','UsersController@index');
