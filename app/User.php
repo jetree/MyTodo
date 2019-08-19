@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function follower_friends(){
       return $this->belongsToMany('App\User','friends','friend_id','user_id');
     }
+
+    public function user_informations(){
+      return $this->hasOne('App\UserInformation');
+    }
 }

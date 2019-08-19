@@ -10,8 +10,9 @@ use App\User;
 class UsersController extends Controller
 {
     public function index(){
+      // $Auth = Auth::user()->user_informations();
       $Auth = Auth::user();
-      // dd($Auth);
+      dd($Auth);
 
       return view('auth.info')
       ->with([
