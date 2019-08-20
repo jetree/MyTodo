@@ -12,7 +12,6 @@
         <div class="card-header">User情報（テスト用）</div>
 
         <div class="card-body">
-        {{ $Auth }}
           <div class="form-group row">
             <p class="col-md-3">name</p>
             <strong class="col-md-7 ml-3">{{ $Auth->name }}</strong>
@@ -35,9 +34,11 @@
             <p class="col-md-3">コメント</p>
             <strong class="col-md-7 ml-3">{{ $Auth->user_informations }}</strong>
           </div> -->
-          <button class="btn btn-primary">
-            <a href="{{ url('/users/{Auth}/show') }}">編集</a>
-          </button>
+          <div class="btns">
+            <button class="btn btn-primary">
+              <a href="{{ url('/users/{Auth}/show') }}">編集</a>
+            </button>
+          </div>
         </div>
       </div>
     </div>
