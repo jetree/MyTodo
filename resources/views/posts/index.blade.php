@@ -172,7 +172,7 @@
     </div>
 
   <div class="form-area" id="todo-add-area">
-    <form action="{{ url('/') }}" method="post" id="form_add" ?>
+    <form action="{{ url('/') }}" method="post" id="form_add">
       {{ csrf_field() }}
       @if ($errors->has('todo'))
         <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
