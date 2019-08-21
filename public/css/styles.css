@@ -10,6 +10,11 @@ p{
   margin-bottom: 0.5rem;
 }
 
+strong{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 nav  a{
   color:#eee
 }
@@ -155,9 +160,10 @@ form > p{
   text-align: center;
 }
 
-form > input{
+/* input[type:radio]{ */
+input{
   display: inline-block;
-  margin: 0 auto;
+  margin: 0 10%;
 }
 
 .hidden{
@@ -170,7 +176,7 @@ form > input{
 
 
 textarea{
-  font-size: 22px;
+  font-size: 18px;
   margin: auto;
   box-sizing: border-box;
   width: 95%;

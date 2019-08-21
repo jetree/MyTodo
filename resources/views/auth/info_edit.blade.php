@@ -12,11 +12,12 @@
         <div class="card-header">User情報（テスト用）</div>
 
         <div class="card-body">
-        <form class="" action="index.html" method="post">
+        <form class="" action="{{ url('/users/{Auth}/show') }}" method="post">
+          {{ csrf_field() }}
+          <input type="hidden" name="user_id" value="{{ $Auth->id }}">
 
           <div class="form-group row">
             <p class="col-md-3">name</p>
-            <!-- <strong class="col-md-7 ml-3">{{ $Auth->name }}</strong> -->
             <input class="col-md-7 ml-3" type="text" name="" placeholder="{{ $Auth->name }}"  value="{{ old($Auth->name) }}">
           </div>
 
@@ -30,21 +31,22 @@
           <div class="form-group row">
               <p class="col-md-3">誕生日</p>
             <div class="col-md-7 ml-3">
-              <select class="" name="年">
+              <input type="date" name="birthday" value="2000-01-01">
+              <!-- <select class="" name="年">
 
-              </select>
+              </select>年
               <select class="" name="月">
 
-              </select>
+              </select>月
               <select class="" name="日">
 
-              </select>
+              </select>日 -->
             </div>
           </div>
 
           <div class="form-group row">
             <p class="col-md-3">性別</p>
-            <div class="col-md-7 ml-3 text-center">
+            <div class="col-md-7 ml-3">
               <input type="radio" name="gender" value="1">男
               <input type="radio" name="gender" value="2">女
             </div>
@@ -52,7 +54,7 @@
 
           <div class="form-group row">
             <p class="col-md-3">自己紹介など</p>
-            <textarea name="name" rows="8" cols="80"></textarea>
+            <textarea name="comment" rows="8" cols="40"></textarea>
           </div>
 
           <div class="btns">

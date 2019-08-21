@@ -22,18 +22,18 @@
             <strong class="col-md-7 ml-3">{{ $Auth->email }}</strong>
           </div>
 
-          <!-- <div class="form-group row">
+          <div class="form-group row">
             <p class="col-md-3">誕生日</p>
-            <strong class="col-md-7 ml-3">{{ $Auth->user_informations }}</strong>
+            <strong class="col-md-7 ml-3">{{ $Auth->user_informations->birthday }}</strong>
           </div>
           <div class="form-group row">
             <p class="col-md-3">性別</p>
-            <strong class="col-md-7 ml-3">{{ $Auth->user_informations }}</strong>
+            <strong class="col-md-7 ml-3">{{ $Auth->user_informations->gender }}</strong>
           </div>
           <div class="form-group row">
             <p class="col-md-3">コメント</p>
-            <strong class="col-md-7 ml-3">{{ $Auth->user_informations }}</strong>
-          </div> -->
+            <strong class="col-md-7 ml-3">{{ $Auth->user_informations->comment }}</strong>
+          </div>
           <div class="btns">
             <button class="btn btn-primary">
               <a href="{{ url('/users/{Auth}/show') }}">編集</a>
