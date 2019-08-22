@@ -29,4 +29,5 @@ Route::get('/users/{Auth}','UsersController@index');
 // Route::get('/users/{Auth}/show','UsersController@show');
 Route::get('/users/{Auth}/create','UsersController@create');
 Route::post('/users/{Auth}/create','UsersController@create');
+Route::patch('/users/{Auth}/create','UsersController@update');
 Route::post('/users/{Auth}/show','UsersController@store');

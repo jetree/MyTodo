@@ -12,8 +12,9 @@
         <div class="card-header">User情報（テスト用）</div>
 
         <div class="card-body">
-        <form class="" action="{{ url('/users/{Auth}/show') }}" method="post">
+        <form class="" action="{{ url('/users/{Auth}/create') }}" method="post">
           {{ csrf_field() }}
+          {{ method_field('patch')}}
           <input type="hidden" name="user_id" value="{{ $Auth->id }}">
 
           <div class="form-group row">
