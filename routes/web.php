@@ -16,12 +16,17 @@ Auth::routes();
 
 Route::get('/', 'PostsController@index');
 Route::post('/', 'PostsController@store');
+
 Route::delete('/posts/{post}','PostsController@destroy');
 Route::patch('/posts/{post}','PostsController@update');
-Route::get('/posts/{post}','PostsController@destroy');
+
 Route::patch('/{request}','PostsController@done');
+
 Route::post('/{request}','FriendsController@store');
 Route::delete('/{request}','FriendsController@destroy');
+
 Route::get('/users/{Auth}','UsersController@index');
-Route::get('/users/{Auth}/show','UsersController@show');
+// Route::get('/users/{Auth}/show','UsersController@show');
+Route::get('/users/{Auth}/create','UsersController@create');
+Route::post('/users/{Auth}/create','UsersController@create');
 Route::post('/users/{Auth}/show','UsersController@store');

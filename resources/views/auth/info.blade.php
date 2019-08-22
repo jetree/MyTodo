@@ -22,6 +22,7 @@
             <strong class="col-md-7 ml-3">{{ $Auth->email }}</strong>
           </div>
 
+          @isset($user_information)
           <div class="form-group row">
             <p class="col-md-3">誕生日</p>
             <strong class="col-md-7 ml-3">{{ $Auth->user_informations->birthday }}</strong>
@@ -39,6 +40,14 @@
               <a href="{{ url('/users/{Auth}/show') }}">編集</a>
             </button>
           </div>
+          @else
+          <p class="text-center">ユーザー情報はありません</p>
+            <div class="btns">
+              <button class="btn btn-primary">
+                <a href="{{ url('/users/{Auth}/create') }}">作成</a>
+              </button>
+            </div>
+          @endisset
         </div>
       </div>
     </div>
