@@ -33,18 +33,17 @@ class UsersController extends Controller
       ]);
     }
 
-    public function store(Auth $Auth,Request $request){
-      $this->validate($request,[
-
+    public function edit(){
+      $Auth = Auth::user();
+      return view('auth.info_edit')
+      ->with([
+        'Auth' => $Auth,
       ]);
-      $user_information->birthday = $request->birthday;
-      $user_information->gender = $request->gender;
-      $user_information->comment = $request->comment;
-      $user_information->save();
-      return redirect('/users/{Auth}');
     }
 
-    public function update(Request $request){
+
+
+    public function store(Request $request){
       $this->validate($request,[
 
       ]);
@@ -55,6 +54,17 @@ class UsersController extends Controller
       $user_information->save();
       return redirect('/users/{Auth}');
     }
+    public function update(Auth $Auth,Request $request){
+      $this->validate($request,[
+
+      ]);
+      $user_information->birthday = $request->birthday;
+      $user_information->gender = $request->gender;
+      $user_information->comment = $request->comment;
+      $user_information->save();
+      return redirect('/users/{Auth}');
+    }
+
 
 
     // public function store(Request $request){

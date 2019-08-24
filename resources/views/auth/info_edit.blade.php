@@ -32,16 +32,16 @@
           <div class="form-group row">
               <p class="col-md-3">誕生日</p>
             <div class="col-md-7 ml-3">
-              <input type="date" name="birthday" value="2000-01-01">
-              <!-- <select class="" name="年">
+              <!-- <input type="date" name="birthday" value="2000-01-01"> -->
+              <select id="select_year" class="" name="年">
 
               </select>年
-              <select class="" name="月">
+              <select id="select_month" class="" name="月">
 
               </select>月
-              <select class="" name="日">
+              <select id="select_day" class="" name="日">
 
-              </select>日 -->
+              </select>日
             </div>
           </div>
 
@@ -70,4 +70,13 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('script')
+  @if(app('env')=='local')
+    <script type="text/javascript" src="{{ asset('js/user_informations.js') }}"></script>
+  @endif
+  @if(app('env')=='production')
+    <script type="text/javascript" src="{{ secure_asset('js/user_informations.js') }}"></script>
+  @endif
 @endsection

@@ -226,5 +226,5 @@
   @if(app('env')=='production')
     <script type="text/javascript" src="{{ secure_asset('js/main.js') }}"></script>
     <script type="text/javascript" src="{{ secure_asset('js/friend.js') }}"></script>
-@endif
+  @endif
 @endsection

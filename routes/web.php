@@ -26,8 +26,8 @@ Route::post('/{request}','FriendsController@store');
 Route::delete('/{request}','FriendsController@destroy');
 
 Route::get('/users/{Auth}','UsersController@index');
-// Route::get('/users/{Auth}/show','UsersController@show');
 Route::get('/users/{Auth}/create','UsersController@create');
-Route::post('/users/{Auth}/create','UsersController@create');
-Route::patch('/users/{Auth}/create','UsersController@update');
-Route::post('/users/{Auth}/show','UsersController@store');
+Route::post('/users/{Auth}/create','UsersController@store');
+
+Route::get('/users/{Auth}/edit','UsersController@edit');
+Route::patch('/users/{Auth}/edit','UsersController@update');

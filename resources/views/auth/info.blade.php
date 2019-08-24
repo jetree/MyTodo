@@ -37,7 +37,7 @@
           </div>
           <div class="btns">
             <button class="btn btn-primary">
-              <a href="{{ url('/users/{Auth}/create') }}">編集</a>
+              <a href="{{ url('/users/{Auth}/edit') }}">編集</a>
             </button>
           </div>
           @else
