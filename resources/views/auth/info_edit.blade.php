@@ -12,14 +12,14 @@
         <div class="card-header">User情報（テスト用）</div>
 
         <div class="card-body">
-        <form class="" action="{{ url('/users/{Auth}/create') }}" method="post">
+        <form class="" action="{{ url('/users/{Auth}/edit') }}" method="post">
           {{ csrf_field() }}
           {{ method_field('patch')}}
           <input type="hidden" name="user_id" value="{{ $Auth->id }}">
 
           <div class="form-group row">
             <p class="col-md-3">name</p>
-            <input class="col-md-7 ml-3" type="text" name="" placeholder="{{ $Auth->name }}"  value="{{ old($Auth->name) }}">
+            <input class="col-md-7 ml-3" type="text" name="name" value="{{ old('name',$Auth->name) }}">
           </div>
 
           <div class="form-group row">
@@ -33,13 +33,13 @@
               <p class="col-md-3">誕生日</p>
             <div class="col-md-7 ml-3">
               <!-- <input type="date" name="birthday" value="2000-01-01"> -->
-              <select id="select_year" class="" name="年">
+              <select id="select_year" class="" name="year">
 
               </select>年
-              <select id="select_month" class="" name="月">
+              <select id="select_month" class="" name="month">
 
               </select>月
-              <select id="select_day" class="" name="日">
+              <select id="select_day" class="" name="day">
 
               </select>日
             </div>
@@ -48,14 +48,14 @@
           <div class="form-group row">
             <p class="col-md-3">性別</p>
             <div class="col-md-7 ml-3">
-              <input type="radio" name="gender" value="1">男
-              <input type="radio" name="gender" value="2">女
+              <input type="radio" name="gender" value="1" @if(old('gender',$Auth->user_informations->gender) =='1')checked="checked"@endif>男
+              <input type="radio" name="gender" value="2" @if(old('gender',$Auth->user_informations->gender) =='2')checked="checked"@endif>女
             </div>
           </div>
 
           <div class="form-group row">
             <p class="col-md-3">自己紹介など</p>
-            <textarea name="comment" rows="8" cols="40"></textarea>
+            <textarea name="comment" rows="5" cols="40">{{ old('comment',$Auth->user_informations->comment) }}</textarea>
           </div>
 
           <div class="btns">
