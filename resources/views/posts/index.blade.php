@@ -9,6 +9,9 @@
     @if($Auth)
     <div id="auth_name" class="member-header" data-id="{{ $Auth->id }}">
       {{ $Auth->name }}
+      <a  class="" href="{{ url('/users/{$Auth}') }}">
+        <i class="fas fa-address-card f-right"></i>
+      </a>
     </div>
     @else
       <div id="auth_name" class="class="member-header"">
@@ -139,7 +142,7 @@
           <a href="" class="del" data-id="{{ $post->id }}">
             <i class="fas fa-trash-alt"></i>
           </a>
-          <form class="d-none" mathod="post" action="{{ url('/posts' , $post->id )}}" id="del_{{ $post->id }}">
+          <form class="d-none" mathod="post" action="{{ url('/posts', $post->id )}}" id="del_{{ $post->id }}">
             {{ csrf_field() }}
             {{ method_field('delete')}}
           </form>
@@ -169,7 +172,7 @@
     </div>
 
   <div class="form-area" id="todo-add-area">
-    <form action="{{ url('/') }}" method="post" id="form_add" ?>
+    <form action="{{ url('/') }}" method="post" id="form_add">
       {{ csrf_field() }}
       @if ($errors->has('todo'))
         <span id="errors" class="errors">{{ $errors->first('todo') }}</span>
@@ -223,5 +226,5 @@
   @if(app('env')=='production')
     <script type="text/javascript" src="{{ secure_asset('js/main.js') }}"></script>
     <script type="text/javascript" src="{{ secure_asset('js/friend.js') }}"></script>
-@endif
+  @endif
 @endsection
