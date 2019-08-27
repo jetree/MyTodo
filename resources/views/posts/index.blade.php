@@ -142,7 +142,7 @@
           <a href="" class="del" data-id="{{ $post->id }}">
             <i class="fas fa-trash-alt"></i>
           </a>
-          <form class="d-none" mathod="post" action="{{ url('/posts' , $post->id )}}" id="del_{{ $post->id }}">
+          <form class="d-none" mathod="POST" action="{{ url('/posts', $post->id )}}" id="del_{{ $post->id }}">
             {{ csrf_field() }}
             {{ method_field('delete')}}
           </form>

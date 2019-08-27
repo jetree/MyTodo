@@ -17,6 +17,7 @@ Auth::routes();
 Route::get('/', 'PostsController@index');
 Route::post('/', 'PostsController@store');
 
+Route::get('/posts/{post}','PostsController@destroy');
 Route::delete('/posts/{post}','PostsController@destroy');
 Route::patch('/posts/{post}','PostsController@update');
 
