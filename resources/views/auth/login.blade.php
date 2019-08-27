@@ -69,6 +69,14 @@
                             </div>
                         </div>
                     </form>
+                    <div class="">
+                      <div class="text-center mb-2">
+                        <a class="btn-link" href="" id="login_test1">ユーザーtest1でログイン</a>
+                      </div>
+                      <div class="text-center mb-2">
+                        <a class="btn-link" href="" id="login_test2">ユーザーtest2でログイン</a>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
