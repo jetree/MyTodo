@@ -83,3 +83,12 @@
     </div>
 </div>
 @endsection
+
+@section('script')
+  @if(app('env')=='local')
+    <script type="text/javascript" src="{{ asset('js/login.js') }}"></script>
+  @endif
+  @if(app('env')=='production')
+    <script type="text/javascript" src="{{ secure_asset('js/login.js') }}"></script>
+  @endif
+@endsection
