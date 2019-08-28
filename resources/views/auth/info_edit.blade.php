@@ -11,6 +11,12 @@
       <div class="card">
         <div class="card-header">User情報（テスト用）</div>
 
+        <div class="errors">
+          @foreach( $errors->all() as $error)
+            <p>{{ $error }}</p>
+          @endforeach
+        </div>
+
         <div class="card-body">
         <form class="" action="{{ url('/users/{Auth}/edit') }}" method="post">
           {{ csrf_field() }}

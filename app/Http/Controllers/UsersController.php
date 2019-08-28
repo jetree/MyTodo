@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserInformationRequest;
 use App\User;
 use App\UserInformation;
 
@@ -43,7 +44,8 @@ class UsersController extends Controller
 
 
 
-    public function store(Request $request){
+    public function store(UserInformationRequest $request){
+      dd($request);
       $this->validate($request,[
 
       ]);
@@ -54,7 +56,8 @@ class UsersController extends Controller
       $user_information->save();
       return redirect('/users/{Auth}');
     }
-    public function update(Request $request){
+    public function update(UserInformationRequest $request){
+      dd($request);
       $this->validate($request,[
 
       ]);
