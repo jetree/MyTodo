@@ -29,11 +29,17 @@
           </div>
           <div class="form-group row">
             <p class="col-md-3">性別</p>
-            <strong class="col-md-7 ml-3">{{ $Auth->user_informations->gender }}</strong>
+            @if($Auth->user_informations->gender == 1)
+              <strong class="col-md-7 ml-3">男性</strong>
+            @elseif($Auth->user_informations->gender == 2)
+              <strong class="col-md-7 ml-3">女性</strong>
+            @else
+              <strong class="col-md-7 ml-3">未設定</strong>
+            @endif
           </div>
           <div class="form-group row">
             <p class="col-md-3">コメント</p>
-            <strong class="col-md-7 ml-3">{{ $Auth->user_informations->comment }}</strong>
+            <strong class="col-md-7 ml-3">{!! nl2br(e($Auth->user_informations->comment)) !!}</strong>
           </div>
           <div class="btns">
             <button class="btn btn-primary">
