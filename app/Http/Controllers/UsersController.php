@@ -36,25 +36,22 @@ class UsersController extends Controller
 
     public function edit(){
       $Auth = Auth::user();
-<<<<<<< HEAD
       $birthday = $Auth->user_informations->birthday;
       $birthday = date('Y-n-j', strtotime($birthday)); //date()で０なしのyyyy-m-dに直す
       list($year, $month, $day) = explode('-', $birthday);//'-'で分轄する
-<<<<<<< HEAD
-=======
->>>>>>> parent of 5dfc651... 誕生日のselectをデータから復元し、リダイレクト時も元の値を保持させた
-=======
->>>>>>> 1ab647d244f40a7e85f80ccd0f7fc574d14a86d6
       return view('auth.info_edit')
       ->with([
         'Auth' => $Auth,
+        'year' => $year,
+        'month' => $month,
+        'day' => $day,
       ]);
     }
 
 
 
     public function store(UserInformationRequest $request){
-      dd($request);
+      // dd($request);
       $this->validate($request,[
 
       ]);
@@ -66,7 +63,7 @@ class UsersController extends Controller
       return redirect('/users/{Auth}');
     }
     public function update(UserInformationRequest $request){
-      dd($request);
+      // dd($request);
       $this->validate($request,[
 
       ]);
