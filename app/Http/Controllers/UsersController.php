@@ -37,8 +37,8 @@ class UsersController extends Controller
     public function edit(){
       $Auth = Auth::user();
       $birthday = $Auth->user_informations->birthday;
-      $birthday = date('Y-n-j', strtotime($birthday));
-      list($year, $month, $day) = explode('-', $birthday);
+      $birthday = date('Y-n-j', strtotime($birthday)); //date()で０なしのyyyy-m-dに直す
+      list($year, $month, $day) = explode('-', $birthday);//'-'で分轄する
       return view('auth.info_edit')
       ->with([
         'Auth' => $Auth,

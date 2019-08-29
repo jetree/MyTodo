@@ -24,7 +24,7 @@ class UserInformationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
             'year' => 'nullable|digits:4',
             'month' => 'nullable',
             'day' => 'nullable',
