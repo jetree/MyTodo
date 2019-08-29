@@ -49,5 +49,9 @@
     $set_day();
     select_year.addEventListener('change',$set_day)
     select_month.addEventListener('change',$set_day)
+
+    select_year.value = select_year.getAttribute('data-old-value')
+    select_month.value = select_month.getAttribute('data-old-value')
+    select_day.value = select_day.getAttribute('data-old-value')
   }
 })();
