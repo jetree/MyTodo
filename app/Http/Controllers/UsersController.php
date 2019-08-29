@@ -52,9 +52,6 @@ class UsersController extends Controller
 
     public function store(UserInformationRequest $request){
       // dd($request);
-      $this->validate($request,[
-
-      ]);
       $user_information = new UserInformation();
       $user_information->birthday = $request->birthday;
       $user_information->gender = $request->gender;
@@ -64,9 +61,6 @@ class UsersController extends Controller
     }
     public function update(UserInformationRequest $request){
       // dd($request);
-      $this->validate($request,[
-
-      ]);
       $yaar = $request->year;
       $month = $request->month;
       $day = $request->day;
