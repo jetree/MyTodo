@@ -39,13 +39,13 @@
               <p class="col-md-3">誕生日</p>
             <div class="col-md-7 ml-3">
               <!-- <input type="date" name="birthday" value="2000-01-01"> -->
-              <select id="select_year" class="" name="year" data-old-value = "{{old( 'year',$year )}}">
+              <select id="select_year" class="" name="year">
 
               </select>年
-              <select id="select_month" class="" name="month" data-old-value = "{{old( 'month',$month )}}">
+              <select id="select_month" class="" name="month">
 
               </select>月
-              <select id="select_day" class="" name="day" data-old-value = "{{old( 'day',$day )}}">
+              <select id="select_day" class="" name="day">
 
               </select>日
             </div>
