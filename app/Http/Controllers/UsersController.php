@@ -36,16 +36,22 @@ class UsersController extends Controller
 
     public function edit(){
       $Auth = Auth::user();
+      $birthday = $Auth->user_informations->birthday;
+      $birthday = date('Y-n-j', strtotime($birthday));
+      list($year, $month, $day) = explode('-', $birthday);
       return view('auth.info_edit')
       ->with([
         'Auth' => $Auth,
+        'year' => $year,
+        'month' => $month,
+        'day' => $day,
       ]);
     }
 
 
 
     public function store(UserInformationRequest $request){
-      dd($request);
+      // dd($request);
       $this->validate($request,[
 
       ]);
@@ -57,7 +63,7 @@ class UsersController extends Controller
       return redirect('/users/{Auth}');
     }
     public function update(UserInformationRequest $request){
-      dd($request);
+      // dd($request);
       $this->validate($request,[
 
       ]);
