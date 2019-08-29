@@ -25,6 +25,12 @@ class UserInformationRequest extends FormRequest
     {
         return [
             'name' => 'required'
+            'year' => 'nullable|digits:4',
+            'month' => 'nullable',
+            'day' => 'nullable',
+            'gender' => 'nullable|digits:1',
+            'comment' => 'nullable|string'
+
         ];
     }
 }
