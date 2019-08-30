@@ -43,8 +43,10 @@
 
               </select>年
               <select id="select_month" class="" name="month" data-old-value = "{{old( 'month',$month )}}">
+
               </select>月
               <select id="select_day" class="" name="day" data-old-value = "{{old( 'day',$day )}}">
+
               </select>日
             </div>
           </div>

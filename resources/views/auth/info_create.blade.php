@@ -11,6 +11,12 @@
       <div class="card">
         <div class="card-header">User情報（テスト用）</div>
 
+        <div class="errors">
+          @foreach( $errors->all() as $error)
+            <p>{{ $error }}</p>
+          @endforeach
+        </div>
+
         <div class="card-body">
         <form class="" action="{{ url('/users/{Auth}/create') }}" method="post">
           {{ csrf_field() }}
@@ -18,7 +24,7 @@
 
           <div class="form-group row">
             <p class="col-md-3">name</p>
-            <input class="col-md-7 ml-3" type="text" name="" placeholder="{{ $Auth->name }}"  value="{{ old($Auth->name) }}">
+            <input class="col-md-7 ml-3" type="text" name=""  value="{{ old('name',$Auth->name) }}">
           </div>
 
           <div class="form-group row">
@@ -31,16 +37,15 @@
           <div class="form-group row">
               <p class="col-md-3">誕生日</p>
             <div class="col-md-7 ml-3">
-              <input type="date" name="birthday" value="2000-01-01">
-              <!-- <select class="" name="年">
+              <select id="select_year" class="" name="year" data-old-value = "{{old( 'year')}}">
 
               </select>年
-              <select class="" name="月">
+              <select id="select_month" class="" name="month" data-old-value = "{{old( 'month')}}">
 
               </select>月
-              <select class="" name="日">
+              <select id="select_day" class="" name="day" data-old-value = "{{old( 'day')}}">
 
-              </select>日 -->
+              </select>日
             </div>
           </div>
 
@@ -69,4 +74,13 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('script')
+  @if(app('env')=='local')
+    <script type="text/javascript" src="{{ asset('js/user_informations.js') }}"></script>
+  @endif
+  @if(app('env')=='production')
+    <script type="text/javascript" src="{{ secure_asset('js/user_informations.js') }}"></script>
+  @endif
 @endsection
