@@ -24,7 +24,7 @@
 
           <div class="form-group row">
             <p class="col-md-3">name</p>
-            <input class="col-md-7 ml-3" type="text" name=""  value="{{ old('name',$Auth->name) }}">
+            <input class="col-md-7 ml-3" type="text" name="name"  value="{{ old('name',$Auth->name) }}">
           </div>
 
           <div class="form-group row">
@@ -52,14 +52,16 @@
           <div class="form-group row">
             <p class="col-md-3">性別</p>
             <div class="col-md-7 ml-3">
-              <input type="radio" name="gender" value="1">男
-              <input type="radio" name="gender" value="2">女
+              <input type="radio" name="gender" value="1" @if(old('gender') =='1')checked="checked"@endif>男
+              <input type="radio" name="gender" value="2" @if(old('gender') =='2')checked="checked"@endif>女
+
             </div>
           </div>
 
           <div class="form-group row">
             <p class="col-md-3">自己紹介など</p>
             <textarea name="comment" rows="8" cols="40"></textarea>
+            <textarea name="comment" rows="5" cols="40">{{ old('comment') }}</textarea>
           </div>
 
           <div class="btns">
