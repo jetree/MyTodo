@@ -24,7 +24,7 @@
 
           <div class="form-group row">
             <p class="col-md-3">name</p>
-            <input class="col-md-7 ml-3" type="text" name=""  value="{{ old('name',$Auth->name) }}">
+            <input class="col-md-7 ml-3" type="text" name="name"  value="{{ old('name',$Auth->name) }}">
           </div>
 
           <div class="form-group row">

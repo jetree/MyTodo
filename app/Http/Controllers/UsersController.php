@@ -52,20 +52,27 @@ class UsersController extends Controller
 
     public function store(UserInformationRequest $request){
       // dd($request);
+      $Auth = Auth::user();
+      $Auth = $request->name;
       $user_information = new UserInformation();
-      $user_information->birthday = $request->birthday;
+      $yaar = $request->year;
+      $month = $request->month;
+      $day = $request->day;
+      $birthday = $yaar."-".$month."-".$day;
+      $user_information->birthday = $birthday;
       $user_information->gender = $request->gender;
       $user_information->comment = $request->comment;
       $user_information->save();
       return redirect('/users/{Auth}');
     }
     public function update(UserInformationRequest $request){
-      // dd($request);
+      $Auth = Auth::user();
+      $Auth = $request->name;
+      $user_information = UserInformation::where('user_id',$request->user_id)->first();
       $yaar = $request->year;
       $month = $request->month;
       $day = $request->day;
       $birthday = $yaar."-".$month."-".$day;
-      $user_information = UserInformation::where('user_id',$request->user_id)->first();
       $user_information->birthday = $birthday;
       $user_information->gender = $request->gender;
       $user_information->comment = $request->comment;
