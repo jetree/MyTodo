@@ -28,7 +28,7 @@ class UserInformationRequest extends FormRequest
             'year' => 'nullable|digits:4',
             'month' => 'nullable|digits_between:1,12',
             'day' => 'nullable|digits_between:1,31',
-            'gender' => 'nullable|digits:1',
+            'gender' => 'required|digits:1',
             'comment' => 'nullable|string',
             'birthday' => 'nullable|date|before_or_equal:today'
         ];
@@ -70,6 +70,7 @@ class UserInformationRequest extends FormRequest
       return [
       'name.required' => 'nameは必須項目です',
       'birthday.before_or_equal' => '誕生日は過去の日付を入力してください',
+      'gender.required' => '性別は必須項目です',
 
       ];
     }

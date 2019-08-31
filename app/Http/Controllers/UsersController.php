@@ -55,11 +55,14 @@ class UsersController extends Controller
       $Auth = Auth::user();
       $Auth = $request->name;
       $user_information = new UserInformation();
-      $yaar = $request->year;
+      $user_information->user_id = $request->user_id;
+      $year = $request->year;
       $month = $request->month;
       $day = $request->day;
-      $birthday = $yaar."-".$month."-".$day;
-      $user_information->birthday = $birthday;
+      if($year !==null &&  $month !== null && $day !== null){
+        $birthday = $year."-".$month."-".$day;
+        $user_information->birthday = $birthday;
+      }
       $user_information->gender = $request->gender;
       $user_information->comment = $request->comment;
       $user_information->save();
@@ -69,10 +72,10 @@ class UsersController extends Controller
       $Auth = Auth::user();
       $Auth = $request->name;
       $user_information = UserInformation::where('user_id',$request->user_id)->first();
-      $yaar = $request->year;
+      $year = $request->year;
       $month = $request->month;
       $day = $request->day;
-      $birthday = $yaar."-".$month."-".$day;
+      $birthday = $year."-".$month."-".$day;
       $user_information->birthday = $birthday;
       $user_information->gender = $request->gender;
       $user_information->comment = $request->comment;

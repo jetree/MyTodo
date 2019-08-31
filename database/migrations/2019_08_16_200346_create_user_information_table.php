@@ -18,7 +18,7 @@ class CreateUserInformationTable extends Migration
             $table->unsignedInteger('user_id');
             $table->date('birthday');
             $table->unsignedInteger('gender');  //1:m 2:f (ISO)
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->timestamps();
             $table
               ->foreign('user_id')
