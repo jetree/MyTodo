@@ -16,8 +16,8 @@ class CreateUserInformationTable extends Migration
         Schema::create('user_information', function (Blueprint $table) {
             $table->Increments('id');
             $table->unsignedInteger('user_id');
-            $table->date('birthday');
-            $table->unsignedInteger('gender');  //1:m 2:f (ISO)
+            $table->date('birthday')->nullable();
+            $table->unsignedInteger('gender')->nullable();  //1:m 2:f (ISO)
             $table->string('comment')->nullable();
             $table->timestamps();
             $table
